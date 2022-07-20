@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0%;
+}
+
+
+.menu{
+    width: 100%;
+    height: 60px;
+    background: #34e89e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #34e89e, #184a5e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #34e89e, #184a5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+
+}
+
+li, .aHeader{ 
+    text-decoration: none;
+    display: inline-flex;
+    color: white;
+    width: 120px;
+    height: 20px;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+
+ul{
+    visibility: visible;
+}
+.usuario{
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+h1{
+    margin-left: 40px;
+    margin-right: 30%;
+    font-size: 30px;
+    font-family: 'Fredoka One', cursive;
+}
