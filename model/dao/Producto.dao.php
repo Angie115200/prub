@@ -1,11 +1,12 @@
 <?php
-    
+
     class ModelProducto{
         private $CodProducto;
         private $Nombre;
         private $Referencia;
         private $Cantidad;
         private $Disponibilidad;
+        private $Estado;
 
         public function __construct($objDtoProducto){
             $this->CodProducto = $objDtoProducto -> getCodProducto();
@@ -16,7 +17,7 @@
         }
         public function mdlInsertarProducto(){
             $sql = "CALL spInsertarProducto( ?, ?, ?, ? );";
-            $this -> estado = false;
+            $this -> Estado = false;
             try {
                 $con = new Conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
@@ -25,11 +26,11 @@
                 $stmt -> bindParam ( 3, $this->Cantidad,  PDO::PARAM_INT);
                 $stmt -> bindParam ( 4, $this->Disponibilidad,  PDO::PARAM_INT);
                 $stmt -> execute();
-                $this -> estado = true;
+                $this -> Estado = true;
             } catch (PDOException $ex) {
                 echo "Hay un error en el dao de producto " . $ex -> getMessage();
             }
-            return $this -> estado;
+            return $this -> Estado;
         }//FIN DE INSERTAR PRODUCTO
 
         public function mdlConsultarProducto(){
@@ -65,12 +66,29 @@
         return $this-> Estado;
         
         }
+
+        public function mdlModificarProducto(){
+            $sql = "CALL splModificarProducto(?,?,?,?,?)";
+            $this -> Estado = false;
+            try {
+                $con = new Conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam ( 1, $this->CodProducto, PDO::PARAM_INT);
+                $stmt -> bindParam ( 2, $this->Nombre, PDO::PARAM_STR);
+                $stmt -> bindParam ( 3, $this->Referencia, PDO::PARAM_STR);
+                $stmt -> bindParam ( 4, $this->Cantidad,  PDO::PARAM_INT);
+                $stmt -> bindParam ( 5, $this->Disponibilidad,  PDO::PARAM_INT);
+                $stmt -> execute();
+                $this -> Estado = true;
+            } catch (PDOException $ex) {
+                echo "Hay un error en el dao de producto " . $ex -> getMessage();
+            }
+            return $this -> Estado;
+        }//FIN DE MODIFICAR PRODUCTO
     }
 
-
     
-
-
+    
 
 
 

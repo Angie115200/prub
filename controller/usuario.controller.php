@@ -4,7 +4,7 @@
         public function InsertarUsuario( $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo){
             
             try{
-                $objDtoEmpleado = new RegistroEmp();
+                $objDtoEmpleado = new RegistroEmp(null, $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo);
                 $objDtoEmpleado -> setNombre($Nombre);
                 $objDtoEmpleado -> setRol($Rol);
                 $objDtoEmpleado -> setContra($Contra);
@@ -13,12 +13,12 @@
                 $objDtoEmpleado -> setTelefono($Telefono);
                 $objDtoEmpleado -> setCedula($Cedula);
                 $objDtoEmpleado -> setCorreo($Correo);
-
                 $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
                 $objDaoEmpleado ->  mdlInsertEmpleado();
                 if ( $this->Estado = True ){
                     
                     echo "<script>alert('El registro ha sido guardado')</script>";
+                    
                 }
                 else{
                    echo "<script>alert('ERROR EN EL REGISTRO')</script>";
@@ -58,37 +58,52 @@
             );
            
             $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
-            
-            if( $objDaoEmpleado->mdlEliminarEmpleado()){
-                echo "<script>
-                window.location = 'index4.php?ruta=usuario'
-                </script>";
-            }
+            $objDaoEmpleado->mdlEliminarEmpleado();
+            echo "<script>
+                window.location = 'index.php?ruta=Conusuario'
+            </script>";
            
             }
     
             public function ModificarUsuario(){
                 $objDtoEmpleado = new RegistroEmp(
+                $_POST["codEmpleado"],
                 $_POST["Nombre"],
-                $_POST["Rol"],
-                $_POST["Contra"],
                 $_POST["Apellido"],
-                $_POST["Telefono"],
-                $_POST["Confirmacion"],
                 $_POST["Cedula"],
-                $_POST["Correo"]
+                $_POST["Telefono"],
+                $_POST["Correo"],
+                $_POST["contraseña"],
+                $_POST["confirmar"],
+                $_POST["Rol"]
                 );
-            
+                var_dump($objDtoEmpleado);
                 $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
-                if ($objDaoEmpleado -> mdlModificarEmpleado() ) {
+               
+                if ($objDaoEmpleado -> mdlModificarUsuario() ) {
+                    echo "funciono asi";
                     echo "<script>
                         Swal.fire(
                             'Producto',
-                            'El producto ha sido modificado',
+                            'El usuario ha sido modificado',
                             'success'
                         );
                         </script>
-                    ";}
+                        
+                    ";
+                }
+                else{
+                    echo "ERROR";
+                }
     }
+
+    
 }
+
+
+ 
+ 
 ?>
+
+
+

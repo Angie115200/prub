@@ -1,8 +1,9 @@
 <?php
 class ControllerProducto{
+
     public function InsertarProducto($Nombre, $Referencia, $Cantidad, $Disponibilidad){
         try{
-            $objDtoProducto = new Producto();
+            $objDtoProducto = new Producto(null, $Nombre, $Referencia, $Cantidad, $Disponibilidad);
             $objDtoProducto -> setNombre($Nombre);
             $objDtoProducto -> setReferencia($Referencia);
             $objDtoProducto -> setCantidad($Cantidad);
@@ -36,6 +37,43 @@ class ControllerProducto{
         
     }   
 
+    public function ModificarProducto(){
+       
+        $objDtoProducto = new Producto(
+            $_POST["codProducto"],
+            $_POST["NombreP"],
+            $_POST["ReferenciaP"],
+            $_POST["CantidadP"],
+            $_POST["DisponibilidadP"]
+            
+        );
+       
+        $objDaoProducto = new ModelProducto( $objDtoProducto );
+        if ($objDaoProducto -> mdlModificarProducto() ) {
+            echo "<script>
+            window.location = 'index.php?ruta=Conproducto'
+            </script>";
+            echo "<script>
+                Swal.fire(
+                    'Producto',
+                    'El producto ha sido modificado',
+                    'success'
+                );
+                </script>
+            ";
+        }else{
+            echo "<script>
+                Swal.fire(
+                    'Producto',
+                    'No se pudo modificar',
+                    'danger'
+                );
+                </script>
+            ";
+        }
+       
+    }
+   
     public function EliminarProducto(){
         $objDtoProducto = new Producto(
             $_GET['elimina'],
@@ -46,14 +84,15 @@ class ControllerProducto{
         );
        
         $objDaoProducto = new ModelProducto($objDtoProducto);
-        if($objDaoProducto -> mdlEliminarProducto()){
-            echo "<script>
-            window.location = 'index3.php?ruta=producto'
-            </script>";
-        }
+        $objDaoProducto -> mdlEliminarProducto();
+        echo "<script>
+            window.location = 'index.php?ruta=Conproducto'
+        </script>";
+    
 
  
-}}
+}
+}
 
 
 ?>

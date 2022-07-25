@@ -13,7 +13,7 @@
         private $Cedula;
         private $Correo;
        
-      public function __construct($codEmpleado, $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo){
+      public function __construct($codEmpleado, $Nombre, $Apellido,$Cedula, $Telefono,$Correo,$Contra, $Confirmacion , $Rol){
             $this ->codEmpleado = $codEmpleado;
             $this->Nombre = $Nombre;
             $this->Rol = $Rol;

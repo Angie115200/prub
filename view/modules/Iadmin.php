@@ -2,7 +2,7 @@
     include_once "header.php";
 ?>
 
-<link rel="stylesheet" href="../css/Iusuario.css">
+<link rel="stylesheet" href="view/css/Iusuario.css">
     
    
     <?php
@@ -14,11 +14,12 @@
     </div>
     <div class = "container2">
         <h2>Funciones</h2>
-            <input type="submit" value="Registro">
+            <a href="index.php?ruta=producto"> <input type="submit" value="Registro"><a>
+           
             <input type="submit" value="Registrar movimiento">
             <input type="submit" value="Consultar datos">
             <input type="submit" value = "Reportes">
-            <input type="submit" value="Cerrar sesion">
+            <a href="view/modules/cerrar.php"><input type="submit" value="Cerrar sesion"></a>
        
     </div>
 </body>

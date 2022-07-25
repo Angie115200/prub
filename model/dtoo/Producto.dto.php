@@ -16,7 +16,7 @@
             $this->Cantidad = $Cantidad;
             $this->Disponibilidad = $Disponibilidad;
         }
-    
+
     
         //CAPTURA DE DATOS
         public function setCodProducto($CodProducto){

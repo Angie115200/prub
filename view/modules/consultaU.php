@@ -11,21 +11,11 @@
     <script src="view/js/sweetalert2.all.min.js"></script>
     <script src="view/js/Crud.js"></script>
 </head>
-<?php
-    require_once "view/modules/header.php"
-    
 
-?>
     
-    <form action="">
-        <div class = "busq">
-            <div class = "b1">
-                <h4>Busqueda </h4>
-            </div>
-            <input type="text" name="" id="" class = "bar">       
-        </div>
-       
-    </form>
+           <?php
+            $_SESSION = ['NOMBRE'];
+           ?>
 
     <div class = "container" >
     <h3>CONSULTA USUARIO</h3>
@@ -64,15 +54,14 @@
                     <td><?php echo  $dato["NUMERO_CONTACTO"]?></td>
                     <td><?php echo  $dato["COD_ROL"]?></td>
                     <td class = "inputs">
-                        <input type="button" value="Modificar" class = "Button" onclick = "Modificar(this.parentElement.parentElement)" >
-                        <input type="button" value="Eliminar" class = "Button" onclick = "eliminar(this.parentElement.parentElement)">
+                    <a href="javascript:abrir()"  onclick = "Modificar(this.parentElement.parentElement)"><input type="button" value="Modificar" class = "Button" ></a> 
+                    <input type="button" value="Eliminar" class = "Button" onclick = "eliminar(this.parentElement.parentElement)">
+                        
                         
                     </td>
                     </tr>
                     
-                    <?php
-                        
-                    ?>
+                
                     
                 </div>
             
@@ -82,6 +71,9 @@
             <?php
 
         }
+        
+      
+
         ?> </tbody>
             </table>   
             </div>
@@ -93,50 +85,64 @@
 
             ?>
 
-            <form method="POST" name = "FormMdf">
+    <form action="" method="post" id = "formulario" name = "formulario">
+        <div id = "Cerrar"><a href="javascript:cerrar()"><img src="view/img/error.png"></a></div>
+        <div class = "containerF">
 
+            <h2>MODIFICAR PRODUCTO</h2>
+            <input type="hidden" name = "codEmpleado" id = "codEmpleado">
 
-           
-            <input type="hidden"  name="codEmpleado" id="codEmpleado">    
-            <h3>Nombre
-                    <input type="text" class="nmb" name="Nombre" id="Nombre">
-            </h3>
-            <h3>Apellido
-                    <input type="text" class="Apd" name="Apellido" id="Apellido">
-            </h3>
-            <h3 class = "Correo">Correo
-                    <input type="text" class = "correo" name="Correo" id="Correo">
-            </h3>
-
-            <h3 class = "Cedula">Cedula
-                    <input type="number" class = "ced" name="Cedula" id="Cedula">
-            </h3>
-            
-            <h3 class="nct">Telefono
-                    <input type="number" class="conc" name = "Telefono" id = "Telefono">
-            </h3>
-
-            <h3 class="cg">Rol
-                        <select name="Rol"  class = "rol "id="Rol">
-                            <option value="1">Administrador</option>
-                            <option value="2">Empleado</option>
-                        </select>
+            <div class = "f1">
+                <h4>Nombre
+                    <input type="text" name="Nombre" id = "Nombre">
+                </h4>
                    
-            </h3>
-            <input type="submit" id = "enviar" name = "enviar" value = "ENVIAR">
-            </form>
+                <h4>Apellido
+                    <input type="text" name="Apellido"  id="Apellido">
+                </h4>
 
-            <?php
+                <h4>Contraseña
+                    <input type="number"  name="contraseña" id="Contraseña">
+                </h4>
+
+                <h4>Contraseña
+                    <input type="number"  name="confirmar" id="confirmar">
+                </h4>
+                <h4>Telefono
+                    <input type="number"  name="Telefono" id="Telefono">
+                </h4>
+
+                <h4>Cedula
+                    <input type="number"  name="Cedula" id="Cedula">
+                </h4>
+
+                <h4>
+                    Correo
+                    <input type="text" name="Correo" id="Correo">
+                </h4>
+                <h4>Rol
+                    <select name="Rol" id="Rol">
+                        <option value="1">ADMINISTRADOR</option>
+                        <option value="2">EMPLEADO</option>
+                    </select>
+                </h4>
+                
+                <input type="submit">
+        </div>
+  
+    </div>
+    </form>
+   
+    </form>
+    <?php
                     
                        
-                    if(isset($_POST["FormMdf"])){
+                    if(isset($_POST["Nombre"])){
                         $objInsertarEmpleado = new ControllerUsuario();
                         $objInsertarEmpleado-> ModificarUsuario();
                       }
             ?>
-            
-           
-            
+        
           
 </body>
 </html>

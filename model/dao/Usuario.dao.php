@@ -1,4 +1,5 @@
 <?php
+
     class ModelRegistroEmp
     {    
 
@@ -14,7 +15,7 @@
     private $Img;
     private $Estado;
     public $array;
-
+    
     public function __construct($objDtoEmpleado){
         $this->codEmpleado = $objDtoEmpleado -> getCodEmpleado();
         $this->Nombre =$objDtoEmpleado -> getNombre();
@@ -69,29 +70,7 @@
             }
             return $resultset;
         }
-        
-        public function mdlModificarEmpleado(){
-            $sql = "CALL splModificarEmpleado(?,?,?,?,?,?,?)";
-            $this->Estado = False;
 
-            try{
-                $con = new Conexion();
-                $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->Cedula, PDO::PARAM_INT);
-                $stmt -> bindParam(2, $this->Cedula, PDO::PARAM_INT);
-                $stmt -> bindParam(3, $this->Nombre, PDO::PARAM_STR);
-                $stmt -> bindParam(4, $this->Apellido, PDO::PARAM_STR);
-                $stmt -> bindParam(5, $this->Telefono, PDO::PARAM_INT);
-                $stmt -> bindParam(6, $this->Correo, PDO::PARAM_STR);
-                $stmt -> bindParam(7, $this->Rol, PDO::PARAM_INT);
-                $stmt -> execute();
-                $this->Estado = true;
-        } 
-        catch(PDOException $e){
-            echo "ERROR AL MODIFICAR EL PRODUCTO" . getMessage()->$e;
-        }
-        return $this-> Estado;
-        }
          
         public function mdlEliminarEmpleado(){
             $sql = "CALL splEliminarEmpleado(?)";
@@ -110,8 +89,31 @@
         return $this-> Estado;
         }
 
-     
+        public function mdlModificarUsuario(){
+            $sql = "CALL splModificarEmpleado(?,?,?,?,?,?,?,?,?)";
+            $this->Estado = False;
 
+            try{
+                $con = new Conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->codEmpleado, PDO::PARAM_INT);
+                $stmt -> bindParam(2, $this->Cedula, PDO::PARAM_INT);
+                $stmt -> bindParam(3, $this->Nombre, PDO::PARAM_STR);
+                $stmt -> bindParam(4, $this->Apellido, PDO::PARAM_STR);
+                $stmt -> bindParam(5, $this->Telefono, PDO::PARAM_INT);
+                $stmt -> bindParam(6, $this->Correo, PDO::PARAM_STR);
+                $stmt -> bindParam(7, $this->Contra, PDO::PARAM_STR);
+                $stmt -> bindParam(8, $this->Confirmacion, PDO::PARAM_STR);
+                $stmt -> bindParam(9, $this->Rol, PDO::PARAM_INT);
+                $stmt -> execute();
+                $this->Estado = true;
+        } 
+        catch(PDOException $e){
+            echo "ERROR AL MODIFICAR EL PRODUCTO" . getMessage()->$e;
+        }
+        return $this-> Estado;
+        }
+       
 }
             
 

@@ -1,0 +1,11 @@
+
+.ContainerB{
+    width: 590px;
+    height: 90px;
+    background: #34e89e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #34e89e, #184a5e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #34e89e, #184a5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 2px solid black;
+    margin: 2% 0 0 30%;
+    color: white;
+}
