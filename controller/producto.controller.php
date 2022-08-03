@@ -37,6 +37,7 @@ class ControllerProducto{
         
     }   
 
+
     public function ModificarProducto(){
        
         $objDtoProducto = new Producto(
@@ -92,6 +93,21 @@ class ControllerProducto{
 
  
 }
+
+
+    public function BuscarProducto(){
+        $array = false;
+        try{
+            $objDtoProducto = new Producto(null, null,null, null, null);
+            $objDaoProducto = new  ModelProducto ( $objDtoProducto );
+            $array = $objDaoProducto -> mdlBuscarProducto() -> fetchAll();
+        }
+        catch(Exception $e){
+            echo "ERROR";
+        }
+        return $array;
+        
+    }   
 }
 
 

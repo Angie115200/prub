@@ -15,7 +15,7 @@
 
 
     <header>
-        <img src="view/img/LOGO.png" alt="">
+        <img src="view/img/LOGO.png" alt="" class = "logo">
         <h1>GINVZ</h1>
         <ul class = "nav">
             <li class = "p"><a href="">Productos</a>
@@ -37,7 +37,7 @@
             <li><a href="">Usuarios</a>
                 <ul>
                     <li><a href="index.php?ruta=usuario">Registrar Usuario</a></li>
-                    <li><a href="index.php?ruta=Modusuario">Modificar Usuario</a></li>
+                    <li><a href="index.php?ruta=Conusuario">Modificar Usuario</a></li>
                     <li><a href="index.php?ruta=Conusuario">Consultar Usuario</a></li>
                     <li><a href="index.php?ruta=Conusuario">Eliminar Usuario</a></li>
                 </ul>
@@ -45,13 +45,13 @@
             <li><a href="">Movimientos</a>
                 <ul>
                     <li><a href="index.php?ruta=Entrada">Entrada</a></li>
-                    <li><a href="index.php?ruta=Prueba">Salida</a></li>
-                    <li><a href="">Traslado</a></li>
+                    <li><a href="index.php?ruta=Salida">Salida</a></li>
+                    <li><a href="index.php?ruta=">Traslado</a></li>
                     <li><a href="">Devolucion</a></li>
                     <li><a href="">Consultar Movimiento</a>
                         <ul>
                             <li><a href="">Consultar entrada</a></li>
-                            <li><a href="">Consultar salida</a></li>
+                            <li><a href="index.php?ruta=ConsultaS">Consultar salida</a></li>
                             <li><a href="">Consultar traslado</a></li>
                             <li><a href="">Consultar devolucion </a></li>
                         </ul>
@@ -59,11 +59,12 @@
                 </ul>
             </li>
             <li><a href=""><?php
-                echo $_SESSION['Nombre'];
+                 echo($_SESSION['datos']['NOMBRE'] . " " . $_SESSION['datos']['APELLIDO']);
+   
                
             ?></a>
                 <ul>
-                    <li><a href="">Mis datos</a></li>
+                    <li><a href="index.php?ruta=Datos">Mis datos</a></li>
                     <li><a href="view/modules/cerrar.php">Cerrar sesion</a></li>
                 </ul>
             </li>

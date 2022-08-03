@@ -57,7 +57,7 @@
                     <td><?php echo  $dato["NIT"]?></td>
                     <td><?php echo  $dato["EMPRESA"]?></td>
                     <td><?php echo  $dato["DIRECCION"]?></td>
-                    <td><?php echo  $dato["TELEFONO"]?></td>
+                    <td><?php echo $dato["TELEFONO"]?></td>
                     <td class = "inputs">
                        <a href="javascript:abrir()"  onclick = "ModificarProvee(this.parentElement.parentElement)"><input type="button" value="Modificar" class = "Button" ></a> 
                         <input type="button" value="Eliminar" class = "Button" onclick = "EliminarProvee(this.parentElement.parentElement)">

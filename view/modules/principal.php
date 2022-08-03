@@ -3,6 +3,9 @@ require_once "view/modules/header.php";
 
 if (isset($_GET['ruta'])){
     switch ($_GET['ruta']) {
+        case 'Datos':
+            include_once "view/modules/datosU.php";
+            break;
         case 'Prueba':
             include_once "view/modules/prueba.php";
             break;
@@ -23,16 +26,34 @@ if (isset($_GET['ruta'])){
         case 'Conproveedor':
             require_once "view/modules/consultarProvee.php";
             break;
+        
+        case 'ConsultaS':
+                require_once "view/modules/consultaSalida.php";
+                break;
 
         case 'usuario':
-            require_once "view/modules/registro.php";
+            if($_SESSION['datos']['COD_ROL'] == 2){
+                echo '<script language="javascript">alert("USTED NO TIENE ACCESO A ESTA SECCION");</script>';
+            }
+            else{
+                require_once "view/modules/registro.php";
+            }
+           
             break;
         case 'Conusuario':
-            require_once "view/modules/consultaU.php";
+            if($_SESSION['datos']['COD_ROL'] == 2){
+                echo '<script language="javascript">alert("USTED NO TIENE ACCESO A ESTA SECCION");</script>';
+            }
+            else{
+                require_once "view/modules/consultaU.php";
+            }
+           
+            break;
+        case 'Salida':
+            require_once "view/modules/salida.php";
             break;
         
-        case 'Modusuario':
-            require_once "view/modules/modificarU.php";
+      
         /*default:
             require_once "view/module/presentation.php";
             break;*/

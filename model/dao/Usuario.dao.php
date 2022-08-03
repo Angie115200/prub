@@ -1,5 +1,6 @@
 <?php
 
+
     class ModelRegistroEmp
     {    
 
@@ -32,6 +33,7 @@
 
     public function mdlInsertEmpleado(){
         $sql = "CALL spInsertarEmpleado(?,?,?,?,?,?,?,?)";
+        
         $this->Estado = False;
 
         try{
@@ -47,7 +49,7 @@
             $stmt -> bindParam(8, $this->Rol, PDO::PARAM_INT);
             $stmt -> execute();
             $this->Estado = false;
-            
+           
         } 
         catch(PDOException $e){
             echo "ERROR AL INGRESAR EL PRODUCTO" . getMessage()->$e;
@@ -70,6 +72,7 @@
             }
             return $resultset;
         }
+
 
          
         public function mdlEliminarEmpleado(){

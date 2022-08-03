@@ -1,5 +1,5 @@
 <?php
-    class Conexion{
+     class Conexion{
         private $host;
         private $driver;
         private $usuario;
@@ -9,7 +9,7 @@
         private $charSet;
         private $con;
 
-        /* CREAMOS EL CONSTRUCTOR */
+         //CREAMOS EL CONSTRUCTOR 
         public function __construct(){
             $this -> host = "localhost";
             $this -> driver = "mysql";
@@ -34,12 +34,12 @@
                 echo "Error al conectarme".$e->getMessage();
             }
             return $this -> con;
-        }//FIN conexion
-       /* public function __destruct(){
-            $this -> con = NULL;
-        }*/
+        }}//FIN conexion
+       /* public function __destruct(){ nsssssssssssssszs
+            $this -> con = NULL;sxxxxxxxxxxxx
+        }
 
-    }//FIN CLASE
+    }//FIN CLASE*/
     /*try {
         $c = new Conexion();
         $conex = $c -> conexion();
@@ -48,4 +48,6 @@
     } catch (Exception $e) {
         echo "Error";
     }*/
+
+    $bd = new PDO('mysql:host=localhost; dbname =GINVZ', 'root','');
 ?>

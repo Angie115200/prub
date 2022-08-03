@@ -29,6 +29,7 @@
   
         public function setCodEmpleado($codEmpleado){//Capturamos los datos
             $this->codEmpleado = $codEmpleado;
+            
         }
         public function setNombre($Nombre){
             $this->Nombre = $Nombre;
