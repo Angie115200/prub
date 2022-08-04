@@ -15,7 +15,7 @@
             $this->codE = $objDtoSalida -> getCodE();
         }
 
-        public function mdlInsertarSalida(){
+      /*  public function mdlInsertarSalida(){
           /*  $sql = "CALL splInsertarSalida(?,?)";
             $this->Estado = false;
                 try{
@@ -31,14 +31,16 @@
                 
             catch(Exception $e){
                 echo "ERROR EN EL DAO SALIDA" . $e->getMessage();
-            }*/$bd = new PDO('mysql:host=localhost; dbname=ADSI','root', '');
-            $stmt = $bd->prepare("INSERT INTO SALIDA (CANTIDAD_TOTAL, COD_EMPLEADO) VALUES('100', '3')");
+            }
+            $bd = new PDO('mysql:host=localhost; dbname =GINVZ', 'root','');
+            $codE = $_SESSION['datos']['COD_EMPLEADO'];
+            echo $codE;
+            $stmt = $bd->prepare("INSERT INTO `salida`(`COD_EMPLEADO`, 'CANTIDAD_TOTAL') VALUES (3, 100)");
             $stmt -> execute();
             $id = $bd->lastInsertId();
-            echo $id;
+            //echo $id;
            
-        }
-        
+        }*/
         public function mdlConsultarSalida(){
             
             $sql = "CALL splConsultarSalida()";

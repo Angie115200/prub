@@ -1,11 +1,10 @@
 <?php
 
     class ControllerSalida{
-        public function InsertarSalida( $CantT, $codE){
+       /* public function InsertarSalida($codE){
 
             try{
-                $objDtoSalida = new Salida(null,null, $CantT, $codE);  
-                $objDtoSalida -> setCanT($CantT);
+                $objDtoSalida = new Salida(null,null, null, $codE);  
                 $objDtoSalida -> setcodE($codE);
 
                 $obDaoSalida = new ModelSalida($objDtoSalida);
@@ -14,7 +13,7 @@
             catch(Exception $e){
                 echo "ERORR EN EL CATCH";
             }
-        }
+        }*/
         public function InsertarDTSalida($CantidadUni, $CodProducto, $CodSalida){
 
             try{

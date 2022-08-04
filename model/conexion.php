@@ -1,4 +1,5 @@
 <?php
+
      class Conexion{
         private $host;
         private $driver;
@@ -49,5 +50,5 @@
         echo "Error";
     }*/
 
-    $bd = new PDO('mysql:host=localhost; dbname =GINVZ', 'root','');
+   
 ?>
