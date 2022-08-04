@@ -16,7 +16,7 @@
             $this->Disponibilidad = $objDtoProducto -> getDisponibilidad();
         }
         public function mdlInsertarProducto(){
-            $sql = "CALL spInsertarProducto( ?, ?, ?, ? );";
+            $sql = "CALL splInsertarProducto( ?, ?, ?, ? );";
             $this -> Estado = false;
             try {
                 $con = new Conexion();
@@ -61,11 +61,12 @@
                 $this->Estado = true;
         } 
         catch(PDOException $e){
-            echo "ERROR AL ELIMINAR EL PRODUCTO" . getMessage()->$e;
+            echo "ERROR AL ELIMINAR EL PRODUCTO" . $e->getMessage();
         }
         return $this-> Estado;
         
         }
+        
 
         public function mdlModificarProducto(){
             $sql = "CALL splModificarProducto(?,?,?,?,?)";
@@ -85,10 +86,9 @@
             }
             return $this -> Estado;
         }//FIN DE MODIFICAR PRODUCTO
+
     }
 
-    
-    
 
 
 

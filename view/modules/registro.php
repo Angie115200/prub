@@ -78,10 +78,7 @@
    
     </form>
     <?php
-
-
- 
-
+    
         if(isset($_POST["Nombre"])){
             
             $Nombre = $_POST["Nombre"];
@@ -93,10 +90,13 @@
             $Cedula = $_POST["Cedula"];
             $Correo = $_POST["Correo"];
 
+            $_SESSION['Rol'] = $_REQUEST['Rol'];
             $objInsertarEmpleado = new ControllerUsuario();
             $objInsertarEmpleado-> InsertarUsuario( $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo);
 
         }
+
+        
 
 ?>
    

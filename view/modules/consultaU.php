@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,10 +13,6 @@
     <script src="view/js/Crud.js"></script>
 </head>
 
-    
-           <?php
-            $_SESSION = ['NOMBRE'];
-           ?>
 
     <div class = "container" >
     <h3>CONSULTA USUARIO</h3>
@@ -32,6 +29,7 @@
                             <td>CEDULA</td>
                             <td>TELEFONO</td>
                             <td>ROL</td>
+                      
                             <td class = "op">OPCIONES</td>
                             
                         </tr>
@@ -52,7 +50,9 @@
                     <td><?php echo  $dato["CORREO"]?></td>
                     <td><?php echo  $dato["CEDULA"]?></td>
                     <td><?php echo  $dato["NUMERO_CONTACTO"]?></td>
+         
                     <td><?php echo  $dato["COD_ROL"]?></td>
+                    
                     <td class = "inputs">
                     <a href="javascript:abrir()"  onclick = "Modificar(this.parentElement.parentElement)"><input type="button" value="Modificar" class = "Button" ></a> 
                     <input type="button" value="Eliminar" class = "Button" onclick = "eliminar(this.parentElement.parentElement)">
@@ -61,18 +61,18 @@
                     </td>
                     </tr>
                     
-                
-                    
+           
                 </div>
-            
+
+                
+               
             </div>
             </div>
             </div>
             <?php
 
         }
-        
-      
+    
 
         ?> </tbody>
             </table>   
@@ -143,6 +143,5 @@
                       }
             ?>
         
-          
-</body>
+       
 </html>

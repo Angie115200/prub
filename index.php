@@ -5,6 +5,9 @@
     require_once "controller/producto.controller.php";
     require_once "controller/proveedor.controller.php";
     require_once "controller/usuario.controller.php";
+    require_once "controller/entrada.controller.php";
+    require_once "controller/DTEntrada.controller.php";
+    require_once "controller/Salida.controller.php";
     //MODELO
     require_once "model/conexion.php";
     require_once "model/dao/conexion.dao.php";
@@ -14,8 +17,16 @@
     require_once "model/dtoo/Proveedor.dto.php";
     require_once "model/dtoo/Usuario.dto.php";
     require_once "model/dao/Usuario.dao.php";
-   
-    //require_once "view/modules/login.php";
+    require_once "model/dtoo/Entrada.dto.php";
+    require_once "model/dao/Entrada.dao.php";
+    require_once "model/dtoo/DTEntrada.dto.php";
+    require_once "model/dao/DTEntrada.dao.php";
+    require_once "model/dao/Salida.dao.php";
+    require_once "model/dtoo/Salida.dto.php";
+    require_once "model/dao/DTSalida.dao.php";
+    require_once "model/dtoo/DTSalida.dto.php";
+  
+    
    
     $objPlantilla = new PlantillaControler();
     $objPlantilla -> ctrPlantilla();

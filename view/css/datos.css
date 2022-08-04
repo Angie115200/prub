@@ -1,0 +1,56 @@
+.container{
+    width: 50%;
+    height: 100%;
+    border: 3px solid  black;
+    margin: 10% auto 0 auto;
+}
+
+h2{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.dato{
+    background: #34e89e;   
+    color: black;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    margin: -10px 0px;
+    border: black 1px solid;
+    justify-content: center;
+}
+.dato1{
+    background: #34e89e; 
+    padding: 0%;
+    color: black;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    margin:0px 0px -10px 0px;
+    border:black 1px solid;
+    justify-content: center;
+}
+.result1{
+    background-color: white;
+    width: 84.8%;
+    height: 30px;
+    border: black 1px solid;
+    display: flex;
+    margin: -32px 0px 0px 15%;
+}
+
+.result{
+background-color: white;
+width: 84.8%;
+height: 30px;
+display: flex;
+border: black 1px solid;
+margin: -32px 0px 0px 15%;
+}
+
