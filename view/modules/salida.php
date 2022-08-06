@@ -1,36 +1,78 @@
- 
-<link rel="stylesheet" href="view/css/salida.css">
-<script src="view/js/crudSal.js"></script>
-<form action="" method="post">
+ <?php
 
-    <div class = "container">
-       <h2>SALIDA</h2>
-        <h3>
-        </h3>
-        
-      
-      
-        <input type="submit" name = "guardaS" value = "Insertar Salida">
-         
-    </div>
-   
-    </form>
-    <?php
-    
-    if(isset($_POST['guardaS'])){
-        $codU = $_SESSION['datos']['COD_EMPLEADO'];
-        $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
-        $stmt = $bd->prepare("INSERT INTO SALIDA (COD_EMPLEADO) VALUES('$codU')");
-        $stmt -> execute();
-        $id = $bd->lastInsertId();
-        echo $id;
-    }
+$codigo = 0;
+$nombre = "";
+$cantidad = 0;
 
-?>   
-
-   
-
+if(isset($_SESSION['productos'])){
+    $productos = $_SESSION['productos'];
+}
   
+else{
+    $productos = array();
+}
+?>
+<link rel="stylesheet" href="view/css/salida.css">
+<script src="view/js/Salida.js"></script>
+
+
+    <form action="" method = "POST" class = "Container">
+        <h2 class = "Entrada">ENTRADA DE PRODUCTOS</h2>
+            <div class = "Container2">
+                <label>CODIGO DEL PRODUCTO</label><input type="number" name = "codProducto" placeholder = "Ingrese el codigo del producto">
+                <label>CANTIDAD</label><input type="number" name = "cantidad">
+                <input type="submit" value="Buscar Producto" name = "operacion" class = "op"></td>
+            </div>
+            
+        <table>
+            <thead>
+                <tr>
+                    <td>CODIGO</td>
+                    <td>NOMBRE</td>
+                    <td>CANTIDAD</td>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($productos as $a){ ?>
+                    <tr>
+                        <td><?php echo $a ->COD_PRODUCTO; ?></td>
+                        <td><?php echo $a -> NOMBRE;?></td>
+                        <td><?php echo $a ->cantidad;?></td>
+                    </tr>
+                     
+                    <?php 
+                        $cantidadTotal += ($a->cantidad);
+                        ?>
+                        <?php
+                    }?>
+                    <tr><td>CANTIDAD TOTAL</td>
+                    <td><?php echo $cantidadTotal; ?></td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <input type="submit"  name = "operacion" value = "GuardarS">
+        <input type="submit" value = "Cancelar" name = "operacion">
+    </form>
+   
+
+    <?php
+        if(isset($_POST['operacion'])){
+            $operacion = $_REQUEST['operacion'];
+            $objDaoSalida = new ModelSalidaI();            
+            switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
+                case 'Buscar Producto' : $objDaoSalida -> BuscarProducto();//llame la funcion buscar cliente
+                break;
+                case 'Cancelar' : $objDaoSalida -> Cancelar();//llame la funcion buscar cliente
+                break;
+                case 'GuardarS' : $objDaoSalida -> GuardarS();//llame la funcion buscar cliente
+                break;
+    
+            }
+        }
+       
+    ?>
+    </table>
 </body>
 </html>
 

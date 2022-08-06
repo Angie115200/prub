@@ -1,124 +1,70 @@
-<link rel="stylesheet" href="view/css/movimiento.css">
-<script src="view/js/CrudEntrada.js"></script>
-<form action="" method="post">
+<?php
+$cantidadPE = 0;
+$codigoPE = 0;
+$nombre = "";
+$precioPE = 0;
 
-    <div class = "container">
-       <h2>ENTRADA</h2>
-        <h3 class = "f1">
-            Cantidad Total
-            <input type="number" name = "CantTotal" id = "CantTotal" >
-        </h3>
-        
-        <h3>
-            Fecha de entrada
-            <input type="date" name = "fecha" id = "fecha">
 
-        </h3>
-        <h3>
-            Hora de entrada
-            <input type="datetime" name="hora" id="hora">
-        </h3>
-        <h3>
-            Precio total
-            <input type="text" name = "PrecioTotal" id = "PrecioTotal"  class = "si">
-        </h3>
-        <input type="hidden" name = "codE" value = "<?php echo $_SESSION['datos']['COD_EMPLEADO'] ?>">
-        
-        <a href="javascript:abrir()"><input type="button" value = "Agregar Producto" class = "ag" name = "ag" id = "ag"></a>
+if(isset($_SESSION['productosE'])){
+    $productosE = $_SESSION['productosE'];
+}
 
-      
-        
-    </div>
-   
-    </form>
-    <?php
+?>
+<link rel="stylesheet" href="view/css/salida.css">
+<script src="view/js/Salida.js"></script>
 
-        if(isset($_POST["codE"])){
-            $codEmpleado = $_POST["codE"];
-            $cantidadT = $_POST["CantTotal"];
-            $fecha = $_POST["fecha"];
-            $hora = $_POST["hora"];
-            $precioTotal = $_POST["PrecioTotal"];
 
-            $objControllerEntrada = new EntradaController();
-            $objControllerEntrada -> InsertarEntrada($codEmpleado, $cantidadT, $fecha, $hora, $precioTotal);
-        }
-       
-
-    ?>
-
-    <div class = "Items" id = "Items" name = "Items">
-    <a href="javascript:cerrarI()"><img src="view/img/cancelar.png" class = "imagen"></a>
-        <h2 class= "agregar" >AGREGAR PRODUCTO</h2>
+    <form action="" method = "POST" class = "Container">
+        <h2 class = "Entrada">ENTRADA DE PRODUCTOS</h2>
+            <div class = "Container2">
+                <label>CODIGO DEL PRODUCTO</label><input type="number" name = "codProducto" placeholder = "Ingrese el codigo del producto">
+                <label>CANTIDAD</label><input type="number" name = "cantidad">
+                <label>PRECIO</label><input type="number" name = "precio">
+                <button value = "Buscar Producto" name = "operacion">
+                    <img src="view/img/busqueda.png" class = "op" >
+                </button>
+                
+            </div>
+            
         <table>
             <thead>
-                <td>ID</td>
-                <td>NOMBRE</td>
-                <td>AGREGA</td>
+                <tr>
+                    <td>CODIGO</td>
+                    <td>NOMBRE</td>
+                    <td>CANTIDAD</td>
+                    <td>PRECIO</td>
+                    <td>SUBTOTAL</td>
+                </tr>
             </thead>
             <tbody>
-         <?php   
-            $objControladorProducto = new ControllerProducto();
-            $listarProducto = $objControladorProducto-> ConsultarProducto();
-        
-        foreach($listarProducto as $dato ){?>
-                    <tr>
-                    <td><?php echo  $dato["COD_PRODUCTO"]?></td>
-                    <td><?php echo  $dato["NOMBRE"]?></td>
-                    <td class = "inputs">
-                        <a href="javascript:abrirD()"><input type="button" value="Agregar producto" class = "Button"></a>
-                    </td>
-                    </tr>
-                    
-                    <?php
-        }
-        
-        ?>
-        </div> </div>
+                <?php
+                   foreach($productosE as $a){
+                ?>
+                <tr>
+                    <td><?php echo $a->COD_PRODUCTO;?></td>
+                    <td><?php echo $a->NOMBRE;?></td>
+                    <td><?php echo $a->cantidad;?></td>
+                    <td><?php echo $a->precio;?></td>
+                    <td><?php echo $a->precio * $a->cantidad;?></td>
+                </tr>
+                <?php } ?>
             </tbody>
         </table>
-    </div>
-    <div class = "Detalle" id = "Detalle">
-        <a href="javascript:cerrarD()"><img src="view/img/cancelar.png" class = "imagen"></a>
-        <form method="POST">
-            <h2 class = "Titulo">DETALLE ENTRADA</h2>
-            <input type="number" name = "codProducto" id = "codProducto" value = "3">
-            <input type="number" name = "codEntrada" id = "codEntrada" value = "37">
-            <input type="number" name = "subtotal" id = "subtotal" value = "2000">
-            <h3>
-                PRECIO UNITARIO
-                <input type="number" name="PrecioUni" id="PrecioUni">
-            </h3>
-            <h3>
-                CANTIDAD
-                <input type="number" name="CantidadUni" id="CantidadUni">
-            </h3>
-           
-            <input type="submit" class = "Guardar" id = "Guardar" name = "Guardar">
-            <?php
-              if(isset($_POST["PrecioUni"])){
-            
-                $codEntrada = $_POST["codEntrada"];
-                $codProducto = $_POST["codProducto"];
-                $cantidadUni = $_POST["CantidadUni"];
-                $precioUni = $_POST["PrecioUni"];
-                $subtotal =  $_POST["subtotal"];
-              
-    
-               
-                $objControllerDTEntrada = new DTEntradaController();
-                $objControllerDTEntrada -> InsertarDetalleE($codEntrada, $codProducto,  $cantidadUni,$precioUni,$subtotal);
-              
-    
-            }
-
+       
+        <?php
+             if(isset($_POST['operacion'])){
+                $operacion = $_REQUEST['operacion'];
+                $objDaoEntrada = new ModelEntradaI();            
+                switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
+                    case 'Buscar Producto' : $objDaoEntrada -> BuscarProductoE();//llame la funcion buscar cliente
+                    break;
+                    case 'Cancelar Entrada' : $objDaoEntrada -> CancelarE();//llame la funcion buscar cliente
+                    break;
+                    case 'Guardar Entrada' : $objDaoEntrada -> GuardarE();//llame la funcion buscar cliente
+                    break;
+        
+                } }
         ?>
-        </form>
-       
-    </div>
-
-       
-
-  
-</body>
-</html>
+         <input type="submit"  name = "operacion" value = "Guardar Entrada" class = "btns">
+        <input type="submit" value = "Cancelar Entrada" name = "operacion" class = "btns">
+    </form>

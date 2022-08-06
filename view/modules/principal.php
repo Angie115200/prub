@@ -31,6 +31,10 @@ if (isset($_GET['ruta'])){
                 require_once "view/modules/consultaSalida.php";
                 break;
 
+        case 'PruebaSalida':
+            require_once "view/modules/pruebaM.php";
+            break;
+
         case 'usuario':
             if($_SESSION['datos']['COD_ROL'] == 2){
                 echo '<script language="javascript">alert("USTED NO TIENE ACCESO A ESTA SECCION");</script>';

@@ -46,7 +46,7 @@
                 <ul>
                     <li><a href="index.php?ruta=Entrada">Entrada</a></li>
                     <li><a href="index.php?ruta=Salida">Salida</a></li>
-                    <li><a href="index.php?ruta=">Traslado</a></li>
+                    <li><a href="index.php?ruta=PruebaSalida">Traslado</a></li>
                     <li><a href="">Devolucion</a></li>
                     <li><a href="">Consultar Movimiento</a>
                         <ul>

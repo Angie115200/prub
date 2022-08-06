@@ -25,6 +25,8 @@
     require_once "model/dtoo/Salida.dto.php";
     require_once "model/dao/DTSalida.dao.php";
     require_once "model/dtoo/DTSalida.dto.php";
+    require_once "model/dao/SalidaI.dao.php";
+    require_once "model/dao/EntradaI.dao.php";
   
     
    

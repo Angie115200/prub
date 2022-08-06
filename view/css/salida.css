@@ -1,118 +1,109 @@
-.container{
-    width: 400px;
-    height: 400px;
+.Container{
+    width: 80%;
+    height: 500px;
     border: 2px solid black;
-    margin: 5% 21%;
+    margin: 5% auto 0 auto;
     background: #2bbd80; 
-   
+    overflow-y: scroll;
  }
  
- h2{
-     background-color: black;
-     width: 100%;
-     height: 30px;
-     margin: 0px;
-     color: white;
-     display: flex;
-     justify-content: center;
- }
- 
- input{
-     width: 98%;
-     height: 20px;
-     background-color: white;
-     color: black;
-     z-index: 1;
-     
- }
-
- .GuardarDTS{
-    width: 80%;
+ .Container::-webkit-scrollbar{
+    width: 20px;
+    height: 20px;
     background-color: black;
-    margin: 275px 0 0 44px;
-    color: white;
- }
-
-.Guardar{
-    width: 80%;
-    background-color: black;
-    margin: 120px 0 0 44px;
-    color: white;
 }
 
- h3{
-    width: 80%;
-    background-color: black;
-    color: white;
-    text-align: center;
-    margin: 30px 0 0 40px;
- }
-
- .container2{
-    width: 400px;
-    height: 400px;
-    border: 2px solid black;
-    margin: -473px 50%;
-    background: #2bbd80; 
-   
-}
-
-.agregar{
-    display: flex;
-    margin: -34px 0 0 0;
-    width: 100%;
-    height: 35px;
-    background-color: black;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.Items, .ContainerC{
-    background: #34e89e;  
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    margin: 70px 0px 0px 36%;
-    border: 2px solid black;
-    display: none;
-}
-
-.imagen{
-    width: 30px;
-    height: 30px;
-    margin: 0px 0px 0px 90%;
+.container2::-webkit-scrollbar-thumb{
+    background-color: gray;
+    width: 20px;
     
 }
 
+
+
 thead{
+    width: 100%;
+    height: 20px;
     background-color: black;
-    color: white;
-    height: 40px;
 }
 
+.Container2{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+}
+
+
+label{
+    width: 200px;
+    height: 20px;
+    padding: 1%;
+    color: white;
+}
 
 table{
     width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-   
 }
+
+thead{
+    width: 80%;
+    height: 30px;
+    color: white;
+    text-align: center;
+}
+
+
 
 tr, td{
-   padding: 10px;
+    padding: 5px;
+ }
+ 
+ 
+ 
+ tr:nth-child(even){
+     background-color: rgba(221, 221, 221, 0.849);
+ }
+ 
+ tr:hover{
+     background-color: #369681;
+     color: white;
+ }
+
+.op{
    
+    width: 40px;
+    height: 40px;
+    display: flex;
+
 }
 
-
-
-tr:nth-child(even){
-    background-color: rgba(221, 221, 221, 0.849);
-}
-
-tr:hover{
-    background-color: #369681;
+.btns{
+    background-color: black;
     color: white;
+    float: right;
+    width: 120px;
+    margin: 0 2px 0 0;
 }
 
+button{
+    background-color: black;
+    cursor: pointer;
+    display: flex;
+    margin-left: 88%;
+    margin-top: -35px;
+}
+
+
+.Entrada{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.Cabeza{
+    width: 100%;
+    height: 40px;
+    background-color: black;
+}
