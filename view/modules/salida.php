@@ -18,7 +18,7 @@ else{
 
 
     <form action="" method = "POST" class = "Container">
-        <h2 class = "Entrada">ENTRADA DE PRODUCTOS</h2>
+        <h2 class = "Entrada">SALIDA DE PRODUCTOS</h2>
             <div class = "Container2">
                 <label>CODIGO DEL PRODUCTO</label><input type="number" name = "codProducto" placeholder = "Ingrese el codigo del producto">
                 <label>CANTIDAD</label><input type="number" name = "cantidad">
@@ -48,7 +48,6 @@ else{
                     }?>
                     <tr><td>CANTIDAD TOTAL</td>
                     <td><?php echo $cantidadTotal; $_SESSION['cantT'] = $cantidadTotal;?></td>
-                    <td><?php echo $_SESSION['cantT'] ?></td>
                     </tr>
 
             </tbody>

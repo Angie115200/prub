@@ -3,7 +3,8 @@ $cantidadPE = 0;
 $codigoPE = 0;
 $nombre = "";
 $precioPE = 0;
-
+$precioTotalE = 0;
+$cantidadTotalE  = 0;
 
 if(isset($_SESSION['productosE'])){
     $productosE = $_SESSION['productosE'];
