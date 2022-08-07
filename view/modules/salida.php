@@ -3,6 +3,7 @@
 $codigo = 0;
 $nombre = "";
 $cantidad = 0;
+$cantidadTotal = 0;
 
 if(isset($_SESSION['productos'])){
     $productos = $_SESSION['productos'];
@@ -46,7 +47,8 @@ else{
                         <?php
                     }?>
                     <tr><td>CANTIDAD TOTAL</td>
-                    <td><?php echo $cantidadTotal; ?></td>
+                    <td><?php echo $cantidadTotal; $_SESSION['cantT'] = $cantidadTotal;?></td>
+                    <td><?php echo $_SESSION['cantT'] ?></td>
                     </tr>
 
             </tbody>

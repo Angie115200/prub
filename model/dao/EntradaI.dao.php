@@ -13,7 +13,7 @@
             $productosE->precio = $precioPE;
             $_SESSION['productosE'][] = $productosE;
 
-            print_r($_SESSION['productosE']);
+            
         }
 
         public function GuardarE(){
@@ -21,7 +21,13 @@
             $cantidadPE = $_REQUEST['cantidad'];
             $codigoPE = $_REQUEST['codProducto'];
             $precioPE = $_REQUEST['precio'];
+            $cantidadTotalE = $_SESSION['cantTE'];
+            $precioTotalE = $_SESSION["precioTE"];
             
+            if($cantidadTotalE <= 0){
+                echo '<script language="javascript">alert("Porfavor ingrese minimo un producto para realizar el movimiento");</script>';
+            }
+            else{
                 $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
                 $stmt = $bd->prepare("INSERT INTO ENTRADA (COD_EMPLEADO) VALUES('$codU')");
                 $stmt -> execute();
@@ -29,11 +35,18 @@
             //print_r($cantidad);
             
           
-            $productosE = $_SESSION['productosE'];
-            foreach($productosE as $a){ 
+                $productosE = $_SESSION['productosE'];
+                foreach($productosE as $a){ 
                 $bd->query("INSERT INTO detalle_entrada(CANTIDAD, COD_PRODUCTO, COD_ENTRADA, PRECIO_UNIDAD, SUBTOTAL) VALUES($a->cantidad, $a->COD_PRODUCTO, $id, $a->precio, $a->precio * $a->cantidad)");
             }
-                
+            $cantidadTotalE = $_SESSION['cantTE'];
+            $precioTotalE = $_SESSION["precioTE"];
+            $stmt = $bd->prepare("UPDATE `entrada` SET `CANTIDAD_TOTAL`= $cantidadTotalE, `PRECIO_TOTAL` =  $precioTotalE   WHERE COD_ENTRADA = $id");//Modificamos la cantidad de la salida
+            $stmt -> execute();
+            unset($_SESSION['cantTE']);//destruimos la session que almacena cantidad
+            unset($_SESSION['precioTE']);
+            }
+               
         }
 
         public function CancelarE(){

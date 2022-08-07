@@ -47,7 +47,21 @@ if(isset($_SESSION['productosE'])){
                     <td><?php echo $a->precio;?></td>
                     <td><?php echo $a->precio * $a->cantidad;?></td>
                 </tr>
-                <?php } ?>
+                <?php $precioTotalE += ($a->cantidad * $a->precio );
+                $cantidadTotalE += ($a->cantidad);
+                } 
+                    
+                    
+                    $_SESSION['cantTE'] = $cantidadTotalE;
+                    $_SESSION['precioTE'] = $precioTotalE;
+                ?>
+                 <tr><td>CANTIDAD TOTAL</td>
+                    <td><?php echo $cantidadTotalE?></td>
+                </tr>
+                <tr>
+                    <td>PRECIO TOTAL</td>
+                    <td><?php echo $precioTotalE?></td>
+                </tr>
             </tbody>
         </table>
        

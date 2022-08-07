@@ -26,6 +26,10 @@ if (isset($_GET['ruta'])){
         case 'Conproveedor':
             require_once "view/modules/consultarProvee.php";
             break;
+
+        case 'Traslado':
+            require_once "view/modules/traslado.php";
+            break;
         
         case 'ConsultaS':
                 require_once "view/modules/consultaSalida.php";
