@@ -2,14 +2,12 @@ function ModificarP(obj){
     codP = document.getElementById('codProducto');
     nombreP = document.getElementById('NombreP');
     referenciaP = document.getElementById('ReferenciaP');
-    cantidadP = document.getElementById('CantidadP');
     disponibilidadP = document.getElementById('DisponibilidadP');
 
     codP.value = obj.children[0].innerHTML;
     nombreP.value = obj.children[1].innerHTML;
     referenciaP.value = obj.children[2].innerHTML;
-    cantidadP.value = obj.children[3].innerHTML;
-    disponibilidadP.value = obj.children[4].innerHTML;
+    disponibilidadP.value = obj.children[3].innerHTML;
 
     
     

@@ -20,7 +20,6 @@
                             <td>ID</td>
                             <td>NOMBRE DEL PRODUCTO</td>
                             <td>REFERENCIA</td>
-                            <td>CANTIDAD</td>
                             <td>DISPONIBILIDAD</td>
                             <td class = "op">OPCIONES</td>
                             
@@ -38,7 +37,6 @@
                     <td><?php echo  $dato["COD_PRODUCTO"]?></td>
                     <td><?php echo  $dato["NOMBRE"]?></td>
                     <td><?php echo  $dato["REFERENCIA"]?></td>
-                    <td><?php echo  $dato["CANTIDAD"]?></td>
                     <td><?php echo  $dato["DISPONIBILIDAD"]?></td>
                     <td class = "inputs">
                         <a href="javascript:abrir()" onclick = "ModificarP(this.parentElement.parentElement)"><input type="button" value="Modificar" class = "Button"></a>
@@ -87,9 +85,6 @@
                 <input type="text" name="ReferenciaP"  id="ReferenciaP">
             </h4>
 
-                <h4>Cantidad
-                    <input type="number"  name="CantidadP" id="CantidadP">
-                </h4>
 
                 <h4>Disponibilidad
                     <input type="number"  name="DisponibilidadP" id="DisponibilidadP">

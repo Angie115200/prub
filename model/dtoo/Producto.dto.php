@@ -9,11 +9,10 @@
     
         //METODO DE ARRANQUE
     
-       public function __construct($CodProducto, $Nombre, $Referencia, $Cantidad, $Disponibilidad){
+       public function __construct($CodProducto, $Nombre, $Referencia, $Disponibilidad){
             $this->CodProducto = $CodProducto;
             $this->Nombre = $Nombre;
             $this->Referencia = $Referencia;
-            $this->Cantidad = $Cantidad;
             $this->Disponibilidad = $Disponibilidad;
         }
 
@@ -32,9 +31,6 @@
             $this->Referencia = $Referencia;
         }
     
-        public function setCantidad($Cantidad){
-            $this->Cantidad = $Cantidad;
-        }
     
         public function setDisponibilidad($Disponibilidad){
             $this->Disponibilidad = $Disponibilidad;
@@ -50,9 +46,6 @@
         }
         public function getReferencia(){
             return $this->Referencia;
-        }
-        public function getCantidad(){
-            return $this->Cantidad;
         }
         public function getDisponibilidad(){
             return $this->Disponibilidad;

@@ -73,8 +73,8 @@
                 $_POST["Cedula"],
                 $_POST["Telefono"],
                 $_POST["Correo"],
-                $_POST["contraseña"],
-                $_POST["confirmar"],
+                null,
+                null,
                 $_POST["Rol"]
                 );
                 var_dump($objDtoEmpleado);

@@ -1,3 +1,8 @@
-function ocultar(){
-    document.getElementById('formulario').style.display="none";
+
+
+function ModificarS(obj){
+    codS = document.getElementById('codSalida');
+
+    codS.value = obj.children[0].innerHTML;
 }
+

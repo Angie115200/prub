@@ -14,27 +14,6 @@
                 echo "ERORR EN EL CATCH";
             }
         }*/
-        public function InsertarDTSalida($CantidadUni, $CodProducto, $CodSalida){
-
-            try{
-                $objDtoDTSalida = new DTSalida(null,$CantidadUni, $CodProducto, $CodSalida);  
-                $objDtoDTSalida -> setCantidadUni($CantidadUni);
-                $objDtoDTSalida -> setCodProducto($CodProducto);
-                $objDtoDTSalida -> setCodSalida($CodSalida);
-
-                $objDaoDTSalida = new ModelDTSalida($objDtoDTSalida);
-                var_dump($objDtoDTSalida);
-                if($objDaoDTSalida -> MdlInsertarDTSalida()){
-                    echo "BIEN";
-                }
-                else{
-                    echo "ERROR";
-                }
-            }
-            catch(Exception $e){
-                echo "ERORR EN EL CATCH";
-            }
-        }
 
         public function ConsultarSalida(){
             $array = false;

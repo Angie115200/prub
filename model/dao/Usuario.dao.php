@@ -93,7 +93,7 @@
         }
 
         public function mdlModificarUsuario(){
-            $sql = "CALL splModificarEmpleado(?,?,?,?,?,?,?,?,?)";
+            $sql = "CALL splModificarEmpleado(?,?,?,?,?,?,?)";
             $this->Estado = False;
 
             try{
@@ -105,9 +105,7 @@
                 $stmt -> bindParam(4, $this->Apellido, PDO::PARAM_STR);
                 $stmt -> bindParam(5, $this->Telefono, PDO::PARAM_INT);
                 $stmt -> bindParam(6, $this->Correo, PDO::PARAM_STR);
-                $stmt -> bindParam(7, $this->Contra, PDO::PARAM_STR);
-                $stmt -> bindParam(8, $this->Confirmacion, PDO::PARAM_STR);
-                $stmt -> bindParam(9, $this->Rol, PDO::PARAM_INT);
+                $stmt -> bindParam(7, $this->Rol, PDO::PARAM_INT);
                 $stmt -> execute();
                 $this->Estado = true;
         } 

@@ -26,10 +26,6 @@
             </h4>
         </div>
             <div class = "f2">
-                <h4>Cantidad
-                    <input type="number"  name="Cantidad" id="Cantidad">
-                </h4>
-
                 <h4>Disponibilidad
                     <input type="number"  name="Disponibilidad" id="Disponibilidad">
                 </h4>
@@ -45,11 +41,10 @@
                   
                     $Nombre =  $_POST["Nombre"];
                     $Referencia =  $_POST["Referencia"];
-                    $Cantidad = $_POST["Cantidad"];
                     $Disponibilidad = $_POST["Disponibilidad"];
                     
                     $objCtrProducto = new ControllerProducto();
-                    $objCtrProducto -> InsertarProducto ($Nombre, $Referencia, $Cantidad, $Disponibilidad);
+                    $objCtrProducto -> InsertarProducto ($Nombre, $Referencia, $Disponibilidad);
                 }
               ?>
 </body>

@@ -3,7 +3,6 @@ function validarP(e){
 
     let nombreP = document.getElementById('NombreP');
     let referenciaP = document.getElementById('Referencia');
-    let cantidadP = document.getElementById('Cantidad');
     let disponibilidadP = document.getElementById('Disponibilidad');
     let formulario = document.getElementById('formulario');
     let estado = true;
@@ -16,15 +15,12 @@ function validarP(e){
         referenciaP.style.borderColor = "red";
         estado = false;
     }
-    if(cantidadP.value == ""){
-        cantidadP.style.borderColor = "red";
-        estado = false;
-    }
+  
     if(disponibilidadP.value == ""){
         disponibilidadP.style.borderColor = "red";
         estado = false;
     }
-    if(disponibilidadP.value == "" || cantidadP.value == "" || referenciaP.value == "" || nombreP.value == ""){
+    if(disponibilidadP.value == "" || referenciaP.value == "" || nombreP.value == ""){
         alert("PORFAVOR INGRESE TODOS LOS CAMPOS REQUERIDOS");
     }
 

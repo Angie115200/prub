@@ -1,12 +1,11 @@
 <?php
 class ControllerProducto{
 
-    public function InsertarProducto($Nombre, $Referencia, $Cantidad, $Disponibilidad){
+    public function InsertarProducto($Nombre, $Referencia, $Disponibilidad){
         try{
-            $objDtoProducto = new Producto(null, $Nombre, $Referencia, $Cantidad, $Disponibilidad);
+            $objDtoProducto = new Producto(null, $Nombre, $Referencia, $Disponibilidad);
             $objDtoProducto -> setNombre($Nombre);
             $objDtoProducto -> setReferencia($Referencia);
-            $objDtoProducto -> setCantidad($Cantidad);
             $objDtoProducto -> setDisponibilidad($Disponibilidad);
 
             $objDaoProducto = new ModelProducto($objDtoProducto);
@@ -44,7 +43,6 @@ class ControllerProducto{
             $_POST["codProducto"],
             $_POST["NombreP"],
             $_POST["ReferenciaP"],
-            $_POST["CantidadP"],
             $_POST["DisponibilidadP"]
             
         );
@@ -81,7 +79,7 @@ class ControllerProducto{
             NULL,
             NULL,
             NULL,
-            NULL,
+
         );
        
         $objDaoProducto = new ModelProducto($objDtoProducto);
