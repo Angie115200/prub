@@ -28,28 +28,21 @@
         }
     */
 
-        public function MdlInsertarDTSalida(){
-           
-            $sql = "CALL splInsertarDTSalida(?,?,?)";
-            //$sql = "INSERT INTO DTSALIDA ";
-            $this->Estado  = false;
+    
 
+       
+        public function mdlConsultarDetalleS(){
+            $sql = "SELECT * FROM DETALLE_SALIDA WHERE COD_SALIDA = $CodSalida";
+            $Estado = false;
             try{
-                
-               $con = new Conexion();
-               $stmt = $con -> conexion() -> prepare($sql);
-                //$stmt = $bd -> prepare($sql);
-                //$stmt = $bd;
-                $stmt -> bindParam(1, $this->CantidadUni, PDO::PARAM_INT);
-                $stmt -> bindParam(2, $this->CodProducto, PDO::PARAM_INT);
-                $stmt -> bindParam(3, $this->CodSalida, PDO::PARAM_INT);
+                $con = new Conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam ( 1, $this->CodSalida, PDO::PARAM_INT);
                 $stmt -> execute();
-                //$stmt = mysqli_query($sql, $bd); 
-                $this->Estado = true;
-        
+                $this -> Estado = true;
             }
             catch(Exception $e){
-                echo "ERROR EN EL DAO";
+                echo "ERROR EN EL DAO DE CONSULTAR DETALLE" . $e->getMessage();
             }
         }
 

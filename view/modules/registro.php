@@ -63,17 +63,17 @@
                     <input type="number" class = "ced" name="Cedula" id = "Cedula">
                     </h3>
                    
-                    <h3>Correo
+                    <h3 class = "correo">Correo
                     <input type="gmail" class = "correo" name="Correo" id = "Correo">
                     </h3>
-                
-                    <h3>Foto de usuario
-                    <input type="file" class = "correo" name="IMG" id = "">
+                    <h3 class = "oc">
+                    <input type="hidden" >
                     </h3>
+                
                
             </div>
             <br>
-            <input type="submit" class ="enviar" value = "Guardar"  onclick="validar(event);">
+            <input type="submit" class ="enviarR" value = "Guardar"  onclick="validar(event);">
     </div>
    
     </form>
@@ -82,17 +82,17 @@
         if(isset($_POST["Nombre"])){
             
             $Nombre = $_POST["Nombre"];
-            $Rol = $_POST["Rol"];
-            $Contra = $_POST["Contra"];
             $Apellido = $_POST["Apellido"];
-            $Telefono =  $_POST["Telefono"];
-            $Confirmacion = $_POST["Confirmacion"];
             $Cedula = $_POST["Cedula"];
+            $Telefono =  $_POST["Telefono"];
             $Correo = $_POST["Correo"];
+            $Contra = $_POST["Contra"];
+            $Rol = $_POST["Rol"];
+           
 
             $_SESSION['Rol'] = $_REQUEST['Rol'];
             $objInsertarEmpleado = new ControllerUsuario();
-            $objInsertarEmpleado-> InsertarUsuario( $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo);
+            $objInsertarEmpleado-> InsertarUsuario( $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol);
 
         }
 

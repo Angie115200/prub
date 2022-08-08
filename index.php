@@ -7,6 +7,7 @@
     require_once "controller/usuario.controller.php";
     require_once "controller/entrada.controller.php";
     require_once "controller/DTEntrada.controller.php";
+    require_once "controller/DTSalida.controller.php";
     require_once "controller/Salida.controller.php";
     //MODELO
     require_once "model/conexion.php";

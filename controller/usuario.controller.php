@@ -1,18 +1,22 @@
 <?php
    
     class ControllerUsuario{
-        public function InsertarUsuario( $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo){
+        public function InsertarUsuario( $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol){
             
             try{
-                $objDtoEmpleado = new RegistroEmp(null, $Nombre, $Rol, $Contra, $Apellido, $Telefono, $Confirmacion, $Cedula, $Correo);
+                $objDtoEmpleado = new RegistroEmp(null, $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol);
                 $objDtoEmpleado -> setNombre($Nombre);
-                $objDtoEmpleado -> setRol($Rol);
-                $objDtoEmpleado -> setContra($Contra);
-                $objDtoEmpleado -> setConfirmacion($Confirmacion);
                 $objDtoEmpleado -> setApellido($Apellido);
-                $objDtoEmpleado -> setTelefono($Telefono);
                 $objDtoEmpleado -> setCedula($Cedula);
+                $objDtoEmpleado -> setTelefono($Telefono);
                 $objDtoEmpleado -> setCorreo($Correo);
+                $objDtoEmpleado -> setContra($Contra);
+                $objDtoEmpleado -> setRol($Rol);
+                
+                
+                
+                
+                
                 $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
                 $objDaoEmpleado ->  mdlInsertEmpleado();
                 if ( $this->Estado = True ){
@@ -53,7 +57,6 @@
             NULL,
             NULL,
             NULL,
-            NULL,
             NULL
             );
            
@@ -74,14 +77,14 @@
                 $_POST["Telefono"],
                 $_POST["Correo"],
                 null,
-                null,
                 $_POST["Rol"]
                 );
-                var_dump($objDtoEmpleado);
                 $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
                
                 if ($objDaoEmpleado -> mdlModificarUsuario() ) {
-                    echo "funciono asi";
+                    echo "<script>
+                    window.location = 'index.php?ruta=Conusuario'
+                    </script>";
                     echo "<script>
                         Swal.fire(
                             'Producto',

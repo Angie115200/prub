@@ -153,12 +153,16 @@
             width: 100%;
             align-items: center;
         }
+
+        .oc{
+            visibility: hidden;
+        }
      
     
-        .enviar{
+        .enviarR{
             width: 20%;
             height: 30px;
-            margin-top: 10%;
+            margin-top: 164px;
             display: block;
             color: white;
             margin-left: 80%;

@@ -7,18 +7,15 @@ function Modificar(obj){
     correo = document.getElementById('Correo');
     cedula = document.getElementById('Cedula');
     telefono = document.getElementById('Telefono');
-    contra = document.getElementById("Contraseña")
  
     
     cod.value = obj.children[0].innerHTML;
     nombre.value = obj.children[1].innerHTML;
     apellido.value = obj.children[2].innerHTML;
-    contra.value = obj.children[3].innerHTML;
-    contra.value = obj.children[4].innerHTML
-    correo.value = obj.children[5].innerHTML;
-    cedula.value = obj.children[6].innerHTML;
-    telefono.value = obj.children[7].innerHTML;
-    rol.value = obj.children[8].innerHTML;
+    correo.value = obj.children[3].innerHTML;
+    cedula.value = obj.children[4].innerHTML;
+    telefono.value = obj.children[5].innerHTML;
+    rol.value = obj.children[6].innerHTML;
     
    
    

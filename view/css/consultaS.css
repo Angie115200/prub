@@ -1,0 +1,140 @@
+.Container{
+    width: 80%;
+    height: 500px;
+    border: 2px solid black;
+    margin: 5% auto 0 auto;
+    background: #2bbd80; 
+    overflow-y: scroll;
+ }
+ 
+ .Container::-webkit-scrollbar{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+.container2::-webkit-scrollbar-thumb{
+    background-color: gray;
+    width: 20px;
+    
+}
+
+
+
+thead{
+    width: 100%;
+    height: 20px;
+    background-color: black;
+}
+
+.Container2{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+}
+
+
+label{
+    width: 200px;
+    height: 20px;
+    padding: 1%;
+    color: white;
+}
+
+table{
+    width: 100%;
+}
+
+thead{
+    width: 80%;
+    height: 30px;
+    color: white;
+    text-align: center;
+}
+
+
+
+tr, td{
+    padding: 5px;
+ }
+ 
+ 
+ 
+ tr:nth-child(even){
+     background-color: rgba(221, 221, 221, 0.849);
+ }
+ 
+ tr:hover{
+     background-color: #369681;
+     color: white;
+ }
+
+.op{
+   
+    width: 40px;
+    height: 40px;
+    display: flex;
+
+}
+
+.btns{
+    background-color: black;
+    color: white;
+    float: right;
+    width: 120px;
+    margin: 0 2px 0 0;
+}
+
+button{
+    background-color: black;
+    cursor: pointer;
+    display: flex;
+    margin-left: 88%;
+    margin-top: -35px;
+}
+
+
+.Entrada{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.Cabeza{
+    width: 100%;
+    height: 40px;
+    background-color: black;
+}
+
+.container{
+    width: 80%;
+    height: 200px;
+    margin: 5% auto 0 auto;
+}
+
+.H2S{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.ContenedorDetalle{
+    width: 50%;
+    height: 100px;
+    display: none;
+    margin: 0px auto 0 auto;
+   
+}
+
+.cerrarCS{
+    width: 18px;
+    height: 18px;
+    margin-top: -19px;
+    margin-left: 92%;
+    display: flex;
+    cursor: pointer;
+}

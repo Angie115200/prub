@@ -22,7 +22,6 @@
         $this->Nombre =$objDtoEmpleado -> getNombre();
         $this->Rol = $objDtoEmpleado -> getRol();
         $this->Contra = $objDtoEmpleado -> getContra();
-        $this->Confirmacion = $objDtoEmpleado -> getConfirmacion();
         $this->Apellido = $objDtoEmpleado -> getApellido();
         $this->Telefono = $objDtoEmpleado -> getTelefono();
         $this->Cedula = $objDtoEmpleado -> getCedula();
@@ -32,7 +31,7 @@
     }
 
     public function mdlInsertEmpleado(){
-        $sql = "CALL spInsertarEmpleado(?,?,?,?,?,?,?,?)";
+        $sql = "CALL spInsertarEmpleado(?,?,?,?,?,?,?)";
         
         $this->Estado = False;
 
@@ -45,8 +44,7 @@
             $stmt -> bindParam(4, $this->Telefono, PDO::PARAM_INT);
             $stmt -> bindParam(5, $this->Correo, PDO::PARAM_STR);
             $stmt -> bindParam(6, $this->Contra, PDO::PARAM_STR);
-            $stmt -> bindParam(7, $this->Confirmacion, PDO::PARAM_STR);
-            $stmt -> bindParam(8, $this->Rol, PDO::PARAM_INT);
+            $stmt -> bindParam(7, $this->Rol, PDO::PARAM_INT);
             $stmt -> execute();
             $this->Estado = false;
            

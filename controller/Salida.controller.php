@@ -14,6 +14,8 @@
                 echo "ERORR EN EL CATCH";
             }
         }*/
+        
+
 
         public function ConsultarSalida(){
             $array = false;
@@ -28,6 +30,25 @@
             }
             return $array;
         }
+
+        public function EliminarSalida(){
+            $objDtoSalida = new Salida(
+            $_GET['elimina'],
+            NULL,
+            NULL,
+            NULL,
+
+        );
+       
+        $objDaoSalida = new ModelSalida($objDtoSalida);
+        $objDaoSalida -> mdlEliminarSalida();
+        echo "<script>
+            window.location = 'index.php?ruta=ConsultaS'
+        </script>";
+    
+
+ 
+}
 
   
 

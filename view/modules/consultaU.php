@@ -101,13 +101,6 @@
                     <input type="text" name="Apellido"  id="Apellido">
                 </h4>
 
-                <h4>Contraseña
-                    <input type="number"  name="contraseña" id="Contraseña">
-                </h4>
-
-                <h4>Contraseña
-                    <input type="number"  name="confirmar" id="confirmar">
-                </h4>
                 <h4>Telefono
                     <input type="number"  name="Telefono" id="Telefono">
                 </h4>

@@ -35,6 +35,26 @@
             return $resultset;
         }
 
+        public function mdlEliminarSalida(){
+            $sql = "CALL splEliminarSalida(?)";
+            $this->Estado = False;
+
+            try{
+                $con = new Conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->codSalida, PDO::PARAM_INT);
+                $stmt -> execute();
+                $this->Estado = true;
+        } 
+        catch(PDOException $e){
+            echo "ERROR AL ELIMINAR EL PRODUCTO" . $e->getMessage();
+        }
+        return $this-> Estado;
+        
+        }
+      
+
+
     }
 
    /* $objDtoSalida = new Salida();  

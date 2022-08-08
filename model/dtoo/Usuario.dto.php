@@ -13,16 +13,15 @@
         private $Cedula;
         private $Correo;
        
-      public function __construct($codEmpleado, $Nombre, $Apellido,$Cedula, $Telefono,$Correo,$Contra, $Confirmacion , $Rol){
+      public function __construct($codEmpleado, $Nombre, $Apellido,$Cedula, $Telefono,$Correo, $Contra, $Rol ){
             $this ->codEmpleado = $codEmpleado;
             $this->Nombre = $Nombre;
-            $this->Rol = $Rol;
-            $this->Contra = $Contra;
             $this->Apellido = $Apellido;
-            $this->Telefono = $Telefono;
-            $this->Confirmacion = $Confirmacion;
             $this->Cedula = $Cedula;
+            $this->Telefono = $Telefono;
             $this->Correo = $Correo;
+            $this->Contra = $Contra;
+            $this->Rol = $Rol;
         }
       
        
@@ -39,9 +38,6 @@
         }
         public function setContra($Contra){
             $this->Contra = $Contra;
-        }
-        public function setConfirmacion($Confirmacion){
-            $this->Confirmacion = $Confirmacion;
         }
         public function setApellido($Apellido){
             $this->Apellido = $Apellido;
@@ -68,9 +64,6 @@
         }
         public function getContra(){
             return $this->Contra;
-        }
-        public function getConfirmacion(){
-            return $this->Confirmacion;
         }
         public function getApellido(){
             return $this->Apellido;
