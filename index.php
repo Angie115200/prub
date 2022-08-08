@@ -29,6 +29,7 @@
     require_once "model/dao/SalidaI.dao.php";
     require_once "model/dao/EntradaI.dao.php";
     require_once "model/dao/DevolucionI.dao.php";
+    require_once "model/dao/TrasladoDT.dao.php";
   
     
    
