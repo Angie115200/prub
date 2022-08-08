@@ -13,6 +13,7 @@
         private $Cedula;
         private $Correo;
        
+        //Creamos un metodo de arranque
       public function __construct($codEmpleado, $Nombre, $Apellido,$Cedula, $Telefono,$Correo, $Contra, $Rol ){
             $this ->codEmpleado = $codEmpleado;
             $this->Nombre = $Nombre;
@@ -53,7 +54,7 @@
         }
        
 
-        public function getCodEmpleado(){//Obetenemos el valor de las propiedades
+        public function getCodEmpleado(){//Returnamos los datos
             return $this->codEmpleado;
         }
         public function getNombre(){

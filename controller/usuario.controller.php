@@ -1,11 +1,11 @@
 <?php
    
     class ControllerUsuario{
-        public function InsertarUsuario( $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol){
+        public function InsertarUsuario( $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol){//Crea una funcion
             
-            try{
-                $objDtoEmpleado = new RegistroEmp(null, $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol);
-                $objDtoEmpleado -> setNombre($Nombre);
+            try{//si no hay error ejecute
+                $objDtoEmpleado = new RegistroEmp(null, $Nombre,  $Apellido, $Cedula, $Telefono,  $Correo, $Contra, $Rol);//llama la clase empleado por medio del objeto
+                $objDtoEmpleado -> setNombre($Nombre);//por medio del objeto llame la funcion y asignele la variable
                 $objDtoEmpleado -> setApellido($Apellido);
                 $objDtoEmpleado -> setCedula($Cedula);
                 $objDtoEmpleado -> setTelefono($Telefono);
@@ -17,29 +17,29 @@
                 
                 
                 
-                $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
-                $objDaoEmpleado ->  mdlInsertEmpleado();
-                if ( $this->Estado = True ){
+                $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );//crea un objeto que llama la clase 
+                $objDaoEmpleado ->  mdlInsertEmpleado();//el dao llama la funcion
+                if ( $this->Estado = True ){//si estado es verdadero ejecute la alerta de exito
                     
                     echo "<script>alert('El registro ha sido guardado')</script>";
                     
-                }
+                }//Si no ejecute la alerte de error
                 else{
                    echo "<script>alert('ERROR EN EL REGISTRO')</script>";
                 }
            }
-           catch(Exception $e){
+           catch(Exception $e){//En caso de error ejecute 
                 echo "<script>alert('Error en el registro')</script)";
            }
          }
  
      
-            public function ConsultarUsuario(){
+            public function ConsultarUsuario(){//Creamos la funcion
             $array = false;
             try{
-                $objDtoEmpleado = new RegistroEmp(null, null, null, null, null, null, null, null, null);
-                $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
-                $array = $objDaoEmpleado -> mdlConsultarEmpleado() -> fetchAll();
+                $objDtoEmpleado = new RegistroEmp(null, null, null, null, null, null, null, null, null);//llamamos el dto y le asignamos nulo porque no necesitamos enviar datos
+                $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );//llamamos la clase por medio del objeto
+                $array = $objDaoEmpleado -> mdlConsultarEmpleado() -> fetchAll();//la cllase dao llama la consulta
             }
             catch(Exception $e){
                 echo "ERROR";
@@ -48,10 +48,10 @@
             
         }
 
-        public function EliminarUsuario(){
-            $objDtoEmpleado = new RegistroEmp(
-            $_GET['elimina'],
-            NULL,
+        public function EliminarUsuario(){//Creamos la funcion
+            $objDtoEmpleado = new RegistroEmp(//Llamamos el dto por medio de un objeto
+            $_GET['elimina'],//asignamos lo que tiene get elimina
+            NULL,//campos nulos porque no necesitamos enviar valores
             NULL,
             NULL,
             NULL,
@@ -60,17 +60,17 @@
             NULL
             );
            
-            $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
-            $objDaoEmpleado->mdlEliminarEmpleado();
+            $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );//llamamos la clase por medio del objeto
+            $objDaoEmpleado->mdlEliminarEmpleado();//el objeto llama la funcion y recarga la pagina
             echo "<script>
                 window.location = 'index.php?ruta=Conusuario'
             </script>";
            
             }
     
-            public function ModificarUsuario(){
-                $objDtoEmpleado = new RegistroEmp(
-                $_POST["codEmpleado"],
+            public function ModificarUsuario(){//crea la funcion
+                $objDtoEmpleado = new RegistroEmp(//por medio del objeto llamamos el dto
+                $_POST["codEmpleado"],//enviamos lo que tiene post en el campo de codEmpleado
                 $_POST["Nombre"],
                 $_POST["Apellido"],
                 $_POST["Cedula"],
@@ -79,9 +79,9 @@
                 null,
                 $_POST["Rol"]
                 );
-                $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );
+                $objDaoEmpleado = new  ModelRegistroEmp ( $objDtoEmpleado );//por medio del objeto llamamos la clase
                
-                if ($objDaoEmpleado -> mdlModificarUsuario() ) {
+                if ($objDaoEmpleado -> mdlModificarUsuario() ) {//si el objeto ejecuta la funcion recargue la pagina
                     echo "<script>
                     window.location = 'index.php?ruta=Conusuario'
                     </script>";
@@ -95,7 +95,7 @@
                         
                     ";
                 }
-                else{
+                else{//de otra manera mande un error
                     echo "ERROR";
                 }
     }

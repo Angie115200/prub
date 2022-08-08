@@ -22,7 +22,9 @@ else{
             <div class = "Container2">
                 <label>CODIGO DEL PRODUCTO</label><input type="number" name = "codProducto" placeholder = "Ingrese el codigo del producto">
                 <label>CANTIDAD</label><input type="number" name = "cantidad">
-                <input type="submit" value="Buscar Producto" name = "operacion" class = "op"></td>
+                <button value = "Buscar bodega" name = "operacion">
+                    <img src="view/img/busqueda.png" class = "op" >
+                </button>
             </div>
             
         <table>

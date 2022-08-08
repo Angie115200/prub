@@ -5,7 +5,7 @@
 <div class = "container">
     <h2>MIS DATOS</h2>
     <div class = "contenerdorD">
-    <P class = "dato1">MI ID</P><p class = "result1"><?php  echo($_SESSION['datos']['COD_EMPLEADO'])?>
+    <P class = "dato1">MI ID</P><p class = "result1"><?php  echo($_SESSION['datos']['COD_EMPLEADO'])//USAMOS LA SESSION DATOS PARA RETORNAR CADA DATO?>
     <p class = "dato">NOMBRE</p><p class = "result"><?php  echo($_SESSION['datos']['NOMBRE'])?>
     <p class = "dato">APELLIDO</p><p class = "result"><?php  echo($_SESSION['datos']['APELLIDO'])?>
     <p class = "dato">CEDULA</p><p class = "result"><?php  echo($_SESSION['datos']['CEDULA'])?>

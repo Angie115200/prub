@@ -3,20 +3,19 @@
     class ModelDevolucionI{
 
         
-    function BuscarProveedor(){
-        $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
+    function BuscarProveedor(){//Creamos la funcion que buscara el proveedor
+        $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');//llamamos la base de datos
         $codProve = $_REQUEST['codProveedor'];//le asignamos a la variable doccumento el valor recibido de documento
         $proveedor = $bd->query("SELECT * FROM proveedor WHERE COD_PROVEEDOR = $codProve")->fetch(PDO::FETCH_OBJ);
         $MotD = $_REQUEST['motDev'];
-        $_SESSION['MotD'] = $MotD;
-        $_SESSION['proveedor'] = $proveedor;
+        $_SESSION['MotD'] = $MotD;//Le asigansmos a session MotD lo que tiene la variable MotD
+        $_SESSION['proveedor'] = $proveedor;//Guardamos los datos del array en una variable
         $_SESSION['codPro'] = $codProve;    
-        //print_r($_SESSION['proveedor']['COD_PROVEEDOR']);
        
     }
      
 
-        function BuscarProductoD(){
+        function BuscarProductoD(){//creamos la funcion que buscara el producto
             $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
             $cantidadPD = $_REQUEST['cantidad'];
             $codigoPD = $_REQUEST['codProducto'];
@@ -27,17 +26,17 @@
            
         }
 
-        public function GuardarD(){
-            $codU = $_SESSION['datos']['COD_EMPLEADO'];
+        public function GuardarD(){//Creamos la funcion que guardara las devoluciones
+            $codU = $_SESSION['datos']['COD_EMPLEADO'];//almacenamos en la variable codU la session del logeo para obtener quien hizo el movimiento
             $MotD = $_SESSION['MotD'];
             $codProveedor = $_SESSION['codPro'];
             $codigoPD = $_REQUEST['codProducto'];
             $cantidadTotalD = $_SESSION['cantTD'];
             $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
-            if($cantidadTotalD <= 0){
+            if($cantidadTotalD <= 0){//Fijamos que si la cantidad total es menor a 0 entonces envie una alerta
                 echo '<script language="javascript">alert("Porfavor ingrese minimo un producto para realizar el movimiento");</script>';
             }
-            else{
+            else{//de lo contrario que ejecute la insercion
                 $Estado = false;
                 $stmt = $bd->prepare("INSERT INTO `devolucion`(`CANTIDAD_TOTAL`, `COD_EMPLEADO`, `COD_PROVEEDOR`,`MOTIVO_DEVOLUCION`) VALUES ('$cantidadTotalD','$codU','$codProveedor', '$MotD')");
                 $stmt -> execute();
@@ -50,16 +49,21 @@
                
             //print_r($cantidad);
                 $productosD = $_SESSION['productosD'];
-                foreach($productosD as $a){ 
+                foreach($productosD as $a){ //Creamos un for each para realizar insercion de un array
                 $bd->query("INSERT INTO detalle_devolucion(CANTIDAD_UNIDAD, COD_PRODUCTO, COD_DEVOLUCION) VALUES('$a->cantidad', '$a->COD_PRODUCTO', $id)");
                
                 }
+                $cantidadTotalD = $_SESSION['cantTD'];
+                $stmt = $bd->prepare("UPDATE `devolucion` SET `CANTIDAD_TOTAL`= $cantidadTotalD WHERE COD_ENTRADA = $id");//Modificamos la cantidad de la salida
+                $stmt -> execute();
+                unset($_SESSION['cantTD']);//destruimos la session que almacena cantidad
+
                
         }
     }
 
     public function CancelarD(){
-        unset($_SESSION['productosD']); 
+        unset($_SESSION['productosD']); //destruya las sessiones
         unset($_SESSION['proveedor']); 
         unset($_SESSION['MotD']);
         unset($_SESSION['codPro']);

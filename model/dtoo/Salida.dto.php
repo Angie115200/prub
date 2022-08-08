@@ -2,18 +2,18 @@
 
 
     class Salida{
-        private $codSalida;
+        private $codSalida;//CREAMOS LAS VARIABLES
         private $CantT;
         private $codE;
     
-    
+        //METODO DE ARRANQUE
        public function __construct($codSalida, $FechaS, $CantT, $codE){
             $this->codSalida =$codSalida;
             $this->FechaS = $CantT;
             $this->CantT = $CantT;
             $this->codE = $codE;
         }
-
+        //CAPTURA DE DATOS
         public function setCodE($codE){
             $this->codE = $codE;
         }
@@ -26,6 +26,8 @@
         public function setFechaS($FechaS){
             $this->FechaS = $FechaS;
         }
+
+        //RETORNO DE DATOS
 
         public function getCodSalida(){
             return $this->codSalida;

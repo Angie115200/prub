@@ -29,8 +29,8 @@
         <?php 
         
 
-        $objControladorProducto = new ControllerProducto();
-        $listarProducto = $objControladorProducto-> ConsultarProducto();
+        $objControladorProducto = new ControllerProducto();//Creamos un objeto que llame la clase
+        $listarProducto = $objControladorProducto-> ConsultarProducto();//Le asignamos a la variable lo q tiene el controllador y llamamos la consulta
         
         foreach($listarProducto as $dato ){?>
                     <tr>
@@ -60,9 +60,9 @@
             </table>   
             </div>
             <?php
-                if(isset($_GET['elimina'])){
-                    $objControladorProducto = new ControllerProducto();
-                    $objControladorProducto-> EliminarProducto();
+                if(isset($_GET['elimina'])){//Si se manda por get eliminar haga lo siguiente
+                    $objControladorProducto = new ControllerProducto();//Llame la clase por medio del objeto
+                    $objControladorProducto-> EliminarProducto();//Llame la funcion eliminar
                 }
 
             ?>
@@ -97,9 +97,9 @@
     </form>
 
     <?php
-    if(isset($_POST["NombreP"])){
-    $objCtrProducto = new ControllerProducto();
-    $objCtrProducto -> ModificarProducto();
+    if(isset($_POST["NombreP"])){//Si se recepciona el dato por el metodo post
+    $objCtrProducto = new ControllerProducto();//Cree un controlador de producto
+    $objCtrProducto -> ModificarProducto();//llame la funcion de modificar
   }
 
     ?>

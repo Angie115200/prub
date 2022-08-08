@@ -56,9 +56,9 @@
     </form>
     <?php
 
-        if(isset($_POST["Nombre"])){
+        if(isset($_POST["Nombre"])){//Si recepciona por el metodo POST el campo nombre
 
-            $Nombre = $_POST["Nombre"];
+            $Nombre = $_POST["Nombre"];//Le asignamos a la variable Nombre lo que se envio por el metodo post en el campo Nombre 
             $NIT = $_POST["NIT"];
             $Telefono = $_POST["Telefono"];
             $Empresa = $_POST["Direccion"];
@@ -66,8 +66,8 @@
        
 
 
-        $objControllerProveedor = new ControllerProveedor();
-        $objControllerProveedor -> InsertarProveedor($Nombre, $NIT, $Telefono, $Empresa, $Direccion);
+        $objControllerProveedor = new ControllerProveedor();//Llamamos el controlador por medio de un objeto
+        $objControllerProveedor -> InsertarProveedor($Nombre, $NIT, $Telefono, $Empresa, $Direccion);//El objeto me trae la funcion insertarProveedor
         }
     ?>
 </body>

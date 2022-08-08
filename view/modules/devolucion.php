@@ -7,14 +7,14 @@ $MotD = "";
 $Empresa = "";
 $productosD = "";
 
-if(isset($_SESSION['proveedor'])){
+if(isset($_SESSION['proveedor'])){//Si recibe la session de proveedor asigne los valores a las variables
     $codProve = $_SESSION['proveedor']->COD_PROVEEDOR;
     $NombreProve = $_SESSION['proveedor']->NOMBRE; 
     $Empresa = $_SESSION['proveedor']->EMPRESA; 
    
 }
 
-if(isset($_SESSION['productosD'])){
+if(isset($_SESSION['productosD'])){//Si recibimos la session productos guardeme el array en una variable
     $productosD = $_SESSION['productosD'];
 }
 
@@ -75,10 +75,10 @@ if(isset($_SESSION['productosD'])){
             </thead>
                 <tbody>
                     <?php
-                    foreach($productosD as $a){
+                    foreach($productosD as $a){//Imprimimos el array de productos
                     ?>
                     <tr>
-                        <td><?php echo $a->COD_PRODUCTO;?></td>
+                        <td><?php echo $a->COD_PRODUCTO;//?></td>
                         <td><?php echo $a->NOMBRE;?></td>
                         <td><?php echo $a->cantidad;?></td>
                     </tr>
@@ -86,9 +86,9 @@ if(isset($_SESSION['productosD'])){
             
       
                     <?php
-                     $cantidadTotalD += ($a->cantidad);
+                     $cantidadTotalD += ($a->cantidad);//Creamos un contador para acumular la cantidad
                    }
-                   $_SESSION['cantTD'] = $cantidadTotalD;
+                   $_SESSION['cantTD'] = $cantidadTotalD;//Guardaos la cantidad en una variable de session
                     ?>
                     <tr><td>CANTIDAD TOTAL</td>
                     <td><?php echo $cantidadTotalD?></td>

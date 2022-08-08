@@ -47,10 +47,10 @@
         
        
 
-        $objControladorProveedor = new ControllerProveedor();
-        $listarProovedor = $objControladorProveedor-> ConsultarProveedor();
+        $objControladorProveedor = new ControllerProveedor();//Creamos el objeto que llama el controllador
+        $listarProovedor = $objControladorProveedor-> ConsultarProveedor();//creamos una variable y le asignamos el objeto controllador que llama la consulta
         
-        foreach($listarProovedor as $dato ){?>
+        foreach($listarProovedor as $dato ){//Por medio del foreach mostramos los datos de la consulta?>
                     <tr>
                     <td><?php echo  $dato["COD_PROVEEDOR"]?></td>
                     <td><?php echo  $dato["NOMBRE"]?></td>
@@ -81,9 +81,9 @@
             </table>   
             </div>  
             <?php
-                if(isset($_GET['elimina'])){
-                    $objControladorProveedor = new ControllerProveedor();
-                    $objControladorProveedor-> EliminarProveedor();
+                if(isset($_GET['elimina'])){//Si rececpiona elimina por metodo get
+                    $objControladorProveedor = new ControllerProveedor();//llama el controlador
+                    $objControladorProveedor-> EliminarProveedor();//el controlador llama la funcion
                 }
 
             ?>
@@ -124,9 +124,9 @@
     </form>
       
     <?php
-          if(isset($_POST["Nombre"])){
-            $objCtrProducto = new ControllerProveedor();
-            $objCtrProducto -> ModificarProovedor();
+          if(isset($_POST["Nombre"])){//Si rececpiona nombre
+            $objCtrProducto = new ControllerProveedor();//llama el controlador por medio del objeto
+            $objCtrProducto -> ModificarProovedor();//el controllador llama la funcion
             
             }
     ?>

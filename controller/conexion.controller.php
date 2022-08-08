@@ -1,40 +1,20 @@
 <?php
     
-    session_start();
-    class ConexionController{
-        public function ctrLogin($Nombre, $Contra, $Rol){
+    session_start();//Inicializamos la session
+    class ConexionController{//Creamos una clase
+        public function ctrLogin($Nombre, $Contra, $Rol){//Creamos una funcion para el ingreso al sistema
             $objModConexion = new ModelConexion($Nombre, $Contra, $Rol);
             $rest = $objModConexion -> getLogin() -> fetch();
-            $_SESSION['datos'] = $rest;
-            if(gettype($rest) != "boolean"){ // YES FIND
+            $_SESSION['datos'] = $rest;//Guardamos el resultado en una variable de session
+            if(gettype($rest) != "boolean"){ 
                 
-                $_SESSION["login"] = true;
-                
-               
-               
-               
+                $_SESSION["login"] = true;//Si la session existe envie al usuario a index
+
                 header("location:index.php");
-              /*  if($Rol == 1){
-                    header("Location:http://localhost:8080/GINVZ1/view/modules/Iadmin.php");
-                    echo "<script>alert('YA HA INGRESASDO ADMIN');</script>";
-                    //include_once("admin.php");
-                }
-                else{
-                    header("Location:http://localhost:8080/GINVZ1/view/modules/principal.php");
-                    echo "<script>alert('BIENVENIDO USUARIO');</script>";
-                   
-                }*/
+           
                
-               
-               
-            }else{
-                echo "<script>
-                Swal.fire(
-                    'Error?',
-                    'The password wrong?',
-                    'error'
-                  )
-                ;</script>";
+            }else{//De otra manera envie una alerta de datos incorrectos
+                echo '<script language="javascript">alert("Datos incorrectos");</script>';
             }
         }
     }

@@ -49,11 +49,11 @@ if(isset($_SESSION['productosE'])){
                     <td><?php echo $a->precio * $a->cantidad;?></td>
                 </tr>
                 <?php $precioTotalE += ($a->cantidad * $a->precio );
-                $cantidadTotalE += ($a->cantidad);
+                $cantidadTotalE += ($a->cantidad);//Cree un contador
                 } 
                     
                     
-                    $_SESSION['cantTE'] = $cantidadTotalE;
+                    $_SESSION['cantTE'] = $cantidadTotalE;//Asignele a las sessiones lo que tienen las variables
                     $_SESSION['precioTE'] = $precioTotalE;
                 ?>
                  <tr><td>CANTIDAD TOTAL</td>

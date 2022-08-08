@@ -1,14 +1,14 @@
 <?php
 
     class Entrada{
-        private $codEntrada;
+        private $codEntrada;//creamos las variables
         private $cantidadT;
         private $fecha;
         private $hora;
         private $precioTotal;
         private $codEmpleado;
     
-        public function __construct($codEntrada, $cantidadT,$precioTotal, $fecha, $hora, $codEmpleado){
+        public function __construct($codEntrada, $cantidadT,$precioTotal, $fecha, $hora, $codEmpleado){//creamos un metodo de arranque
             $this -> codEntrada = $codEntrada;
             $this -> cantidadT = $cantidadT;
             $this -> precioTotal = $precioTotal;
@@ -18,7 +18,7 @@
             
            
         }
-
+    //capturamos los datos
         public function setCodEntrada($codEntrada){
             $this -> codEntrada = $codEntrada;
         }
@@ -37,6 +37,7 @@
         public function setPrecioT($precioTotal){
             $this-> precioTotal = $precioTotal;
         }
+        //retornamos los datos
         public function getCodEntrada(){
             return $this->codEntrada;
         }

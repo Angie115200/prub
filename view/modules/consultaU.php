@@ -39,10 +39,10 @@
         
        
 
-        $objInsertarEmpleado = new ControllerUsuario();
-        $listarProducto = $objInsertarEmpleado-> ConsultarUsuario();
+        $objInsertarEmpleado = new ControllerUsuario();//Creamos el objeto que llama el controlador
+        $listarProducto = $objInsertarEmpleado-> ConsultarUsuario();//le asigansmos el objt controllador a la variable hy llamamos la consulta
         
-        foreach($listarProducto as $dato ){?>
+        foreach($listarProducto as $dato ){//Por medio del foreach mostramos los datos?>
                     <tr>
                     <td><?php echo  $dato["COD_EMPLEADO"]?></td>
                     <td><?php echo  $dato["NOMBRE"]?></td>
@@ -78,9 +78,9 @@
             </table>   
             </div>
             <?php
-                if(isset($_GET['elimina'])){
-                    $objInsertarEmpleado = new ControllerUsuario();
-                    $objInsertarEmpleado->EliminarUsuario();
+                if(isset($_GET['elimina'])){//Si recepciona elimina por el metodo get
+                    $objInsertarEmpleado = new ControllerUsuario();//Cree un objeto y asignele el controllador
+                    $objInsertarEmpleado->EliminarUsuario();//el objeto llama la funcion
                 }
 
             ?>
@@ -89,7 +89,7 @@
         <div id = "Cerrar"><a href="javascript:cerrar()"><img src="view/img/error.png"></a></div>
         <div class = "containerF">
 
-            <h2>MODIFICAR PRODUCTO</h2>
+            <h2>MODIFICAR USUARIO</h2>
             <input type="hidden" name = "codEmpleado" id = "codEmpleado">
 
             <div class = "f1">
@@ -130,9 +130,9 @@
     <?php
                     
                        
-                    if(isset($_POST["Nombre"])){
-                        $objInsertarEmpleado = new ControllerUsuario();
-                        $objInsertarEmpleado-> ModificarUsuario();
+                    if(isset($_POST["Nombre"])){//Si recepcion nombre 
+                        $objInsertarEmpleado = new ControllerUsuario();//cree un objeto y asignele el controllador
+                        $objInsertarEmpleado-> ModificarUsuario();//el objeto llama la funcion
                       }
             ?>
         

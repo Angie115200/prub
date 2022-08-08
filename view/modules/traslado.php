@@ -1,4 +1,11 @@
 <?php
+
+$codBodega = 0;
+$NombreBodega = "";
+$productosT = "";
+$cantidadTotal = 0;
+
+
 if(isset($_SESSION['bodega'])){
     $codBodega = $_SESSION['bodega']->COD_BODEGA;
     $NombreBodega = $_SESSION['bodega']->NOMBRE; 

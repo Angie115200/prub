@@ -1,13 +1,13 @@
 <?php
 
     class Proveedor{
-        private $codProveedor;
+        private $codProveedor;//creamos las variables
         private $Nombre;
         private $NIT;
         private $Telefono;
         private $Empresa;
         private $Direccion;
-
+        //METODO DE ARRANQUE
       public function __construct($codProveedor, $Nombre, $NIT, $Empresa, $Direccion,$Telefono){
             $this->codProveedor = $codProveedor;
             $this->Nombre = $Nombre;
@@ -16,7 +16,7 @@
             $this->Direccion = $Direccion;
             $this->Telefono = $Telefono;
         }
-
+        //CAPTURAMOS LOS DATOS
         public function setCodProov($codProveedor){
             $this->codProveedor = $codProveedor;
         }
@@ -36,6 +36,7 @@
             $this->Direccion = $Direccion;
         }
 
+        //RETORNAMOS LOS DATOS
         public function getCodProov(){
             return $this->codProveedor;
         }

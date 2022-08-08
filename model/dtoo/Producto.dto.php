@@ -1,7 +1,7 @@
 <?php
 
     class Producto{
-        private $CodProducto;
+        private $CodProducto;//creamos las variables
         private $Nombre;
         private $Referencia;
         private $Cantidad;
@@ -36,7 +36,7 @@
             $this->Disponibilidad = $Disponibilidad;
         }
     
-        //ACCEDER A LOS DATOS
+        //RETORNAMOS LOS DATOS
     
         public function getCodProducto(){
             return $this->CodProducto;
