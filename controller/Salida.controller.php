@@ -41,6 +41,7 @@
         );
        
         $objDaoSalida = new ModelSalida($objDtoSalida);
+        $objDaoSalida -> mdlEliminarDTSalida();
         $objDaoSalida -> mdlEliminarSalida();
         echo "<script>
             window.location = 'index.php?ruta=ConsultaS'

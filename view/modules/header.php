@@ -50,10 +50,10 @@
                     <li><a href="index.php?ruta=Devolucion">Devolucion</a></li>
                     <li><a href="">Consultar Movimiento</a>
                         <ul>
-                            <li><a href="">Consultar entrada</a></li>
+                            <li><a href="index.php?ruta=ConsultaE">Consultar entrada</a></li>
                             <li><a href="index.php?ruta=ConsultaS">Consultar salida</a></li>
-                            <li><a href="">Consultar traslado</a></li>
-                            <li><a href="">Consultar devolucion </a></li>
+                            <li><a href="index.php?ruta=ConsultaT">Consultar traslado</a></li>
+                            <li><a href="index.php?ruta=ConsultaD">Consultar devolucion </a></li>
                         </ul>
                     </li>
                 </ul>

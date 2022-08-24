@@ -35,6 +35,10 @@ if (isset($_GET['ruta'])){
             require_once "view/modules/devolucion.php";
             break;
         
+        case 'ConsultaE':
+            require_once "view/modules/consultaEntrada.php";
+            break;
+        
         case 'ConsultaS':
                 require_once "view/modules/consultaSalida.php";
                 break;

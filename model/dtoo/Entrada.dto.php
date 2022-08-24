@@ -8,12 +8,11 @@
         private $precioTotal;
         private $codEmpleado;
     
-        public function __construct($codEntrada, $cantidadT,$precioTotal, $fecha, $hora, $codEmpleado){//creamos un metodo de arranque
+        public function __construct($codEntrada, $cantidadT,$precioTotal, $fecha, $codEmpleado){//creamos un metodo de arranque
             $this -> codEntrada = $codEntrada;
             $this -> cantidadT = $cantidadT;
             $this -> precioTotal = $precioTotal;
             $this -> fecha = $fecha;
-            $this -> hora = $hora; 
             $this -> codEmpleado = $codEmpleado;
             
            

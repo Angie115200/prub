@@ -45,12 +45,24 @@
 
         <div id = "ContenedorDetalle" class = "ContenedorDetalle">
            
-        <form action="" method="post" class = "formConsultaD" id = "formConsultaD">
+        <form action="" method="POST" class = "formConsultaD" id = "formConsultaD">
 
-        <input type="number" id = "codSalida" name = "codSalida">
-      
+            <input type="hidden" id = "codSalida" name = "codSalida">
+            <input type="submit" name="Buscar" id="Buscar">
+        </form>
+            <?php
+                if(isset($_POST['codSalida'])){
+                    $codigoBS = $_POST['codSalida'];
+                    $_SESSION['num'] = $codigoBS;
+                    $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
+                    $consulta = $bd->query("SELECT * FROM detalle_salida WHERE COD_SALIDA = $codigoBS")->fetch(PDO::FETCH_OBJ);
+                    $_SESSION['detallePRO'][] = $consulta;//Llamamos el array almacenado en session usando []
+                    print_r($_SESSION['detallePRO']);
+                }
+                //echo $_SESSION['num'];
+              
+            ?>
 
-            </form>
             <table>
             <thead>
                 <tr>

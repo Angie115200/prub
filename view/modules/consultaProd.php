@@ -41,6 +41,7 @@
                     <td class = "inputs">
                         <a href="javascript:abrir()" onclick = "ModificarP(this.parentElement.parentElement)"><input type="button" value="Modificar" class = "Button"></a>
                         <input type="button" value="Eliminar" class = "Button" onclick = "EliminarP(this.parentElement.parentElement)">
+                        <input type="button" value="Reporte" class = "Button" onclick = "ReporteP(this.parentElement.parentElement)">
                     </td>
                     </tr>
                     
@@ -57,8 +58,10 @@
 
         }
         ?> </tbody>
+            
             </table>   
             </div>
+            <input type="button" value="Reporte general" class = "ButtonRG" onclick = "ReporteG(this.parentElement.parentElement)">
             <?php
                 if(isset($_GET['elimina'])){//Si se manda por get eliminar haga lo siguiente
                     $objControladorProducto = new ControllerProducto();//Llame la clase por medio del objeto

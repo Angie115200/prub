@@ -60,3 +60,15 @@ swalWithBootstrapButtons.fire({
     }
 })
 }
+
+function ReporteP(obj){
+
+
+
+    nombreP = obj.children[1].innerHTML;
+    referenciaP = obj.children[2].innerHTML;
+    disponibilidadP = obj.children[3].innerHTML;
+
+    dato = "referenciaP="+referenciaP+"&nombreP="+nombreP+"&disponibilidadP="+disponibilidadP;
+    window.open("view/modules/reportes/reporteProd.php?"+dato, '_blank');
+}

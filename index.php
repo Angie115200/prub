@@ -18,6 +18,7 @@
     require_once "model/dao/Usuario.dao.php";
     require_once "model/dtoo/Entrada.dto.php";
     require_once "model/dtoo/DTEntrada.dto.php";
+    require_once "model/dao/Entrada.dao.php";
 
     require_once "model/dao/Salida.dao.php";
     require_once "model/dtoo/Salida.dto.php";
