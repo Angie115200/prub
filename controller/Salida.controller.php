@@ -53,6 +53,20 @@
 
   
 
+
+public function ConsultarDTSalida(){
+    $array = false;
+
+    try{
+        $objDtoDTSalida = new DTSalida(null, null, null, null);
+        $objDaoDTSalida = new ModelDTSalida($objDtoDTSalida);
+        $array = $objDaoDTSalida ->  mdlConsultarDTSalida() -> fetchAll();
+    }
+    catch(Exception $e){
+        echo "ERROR EN EL TRY CATCH";
+    }
+    return $array;
+}
        /* public function ConsultarId(){
             $array = false;
         try{

@@ -54,6 +54,8 @@
             $stmt = $bd->prepare("UPDATE `TRASLADO` SET `CANTIDAD_TOTAL`= $cantidadTotal WHERE COD_TRASLADO = $id");//Modificamos la cantidad de la salida
             $stmt -> execute();
             unset($_SESSION['cantT']);//destruimos la session que almacena cantidad
+            unset($_SESSION['productosT']);
+            unset($_SESSION['bodega']);
     }
 
 }}

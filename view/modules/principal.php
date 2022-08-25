@@ -1,5 +1,9 @@
+<link rel="stylesheet" href="view/css/fondoG.css">
 <?php
 require_once "view/modules/header.php";
+?>
+<img src="view/img/FondoG.jpg" alt="" class = "FondoG">
+<?php
 
 if (isset($_GET['ruta'])){
     switch ($_GET['ruta']) {
@@ -43,8 +47,8 @@ if (isset($_GET['ruta'])){
                 require_once "view/modules/consultaSalida.php";
                 break;
 
-        case 'PruebaSalida':
-            require_once "view/modules/pruebaM.php";
+        case 'ConsultaT':
+            require_once "view/modules/consultarTraslado.php";
             break;
 
         case 'usuario':

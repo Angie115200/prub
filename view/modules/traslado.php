@@ -13,6 +13,9 @@ if(isset($_SESSION['bodega'])){
 if(isset($_SESSION['productosT'])){
     $productosT = $_SESSION['productosT'];
 }
+else{
+    $productosT = array();
+}
 ?>
 <link rel="stylesheet" href="view/css/devolucion.css">
 <script src="view/js/Salida.js"></script>
@@ -85,13 +88,25 @@ if(isset($_SESSION['productosT'])){
     $operacion = $_REQUEST['operacion'];
     $objDaoTraslado = new ModelTraslado();            
     switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
-        case 'Buscar bodega' : $objDaoTraslado -> BuscarBodega();//llame la funcion buscar cliente
+        case 'Buscar bodega' : $objDaoTraslado -> BuscarBodega();//llame la funcion buscar cliente?>
+            <script>
+                window.location = "index.php?ruta=Traslado";
+            </script><?php
         break;
-        case 'Buscar Producto' : $objDaoTraslado -> BuscarProductoT();//llame la funcion buscar cliente
+        case 'Buscar Producto' : $objDaoTraslado -> BuscarProductoT();//llame la funcion buscar cliente?>
+            <script>
+                    window.location = "index.php?ruta=Traslado";
+            </script><?php
         break;
-        case 'Cancelar traslado' : $objDaoTraslado -> CancelarTraslado();//llame la funcion buscar cliente
+        case 'Cancelar traslado' : $objDaoTraslado -> CancelarTraslado();//llame la funcion buscar cliente?>
+            <script>
+                window.location = "index.php?ruta=Traslado";
+            </script><?php
         break;
-        case 'Guardar traslado' : $objDaoTraslado -> GuardarTraslado();//llame la funcion buscar cliente
+        case 'Guardar traslado' : $objDaoTraslado -> GuardarTraslado();//llame la funcion buscar cliente?>
+            <script>
+                window.location = "index.php?ruta=Traslado";
+            </script><?php
         break;
 
     } }

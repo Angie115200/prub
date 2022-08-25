@@ -57,6 +57,10 @@
                 $stmt = $bd->prepare("UPDATE `devolucion` SET `CANTIDAD_TOTAL`= $cantidadTotalD WHERE COD_ENTRADA = $id");//Modificamos la cantidad de la salida
                 $stmt -> execute();
                 unset($_SESSION['cantTD']);//destruimos la session que almacena cantidad
+                unset($_SESSION['productosD']); //destruya las sessiones
+                unset($_SESSION['proveedor']); 
+                unset($_SESSION['MotD']);
+                unset($_SESSION['codPro']);
 
                
         }

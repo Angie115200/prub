@@ -45,6 +45,7 @@
             $stmt -> execute();
             unset($_SESSION['cantTE']);//destruimos la session que almacena cantidad
             unset($_SESSION['precioTE']);
+            unset($_SESSION['productosE']); 
             }
                
         }

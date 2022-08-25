@@ -6,7 +6,7 @@
     <title>GINVZ</title>
     <link rel="shortcut icon" href="img/LOGITO.png" type="image/x-icon">
     <link rel="stylesheet" href="view/css/registro.css">
-    
+    <script src="view/js/validacionGLetras.js"></script>    
     <script src="view/js/validacion.js"></script>
 </head>
 <?php
@@ -21,7 +21,7 @@
                     <input type="hidden"  name="codEmpleado" id="codEmpleado">    
 
                     <h3>Nombre
-                    <input type="text" class="nmb" name="Nombre" id = "Nombre">
+                    <input type="text" class="nmb" name="Nombre" id = "Nombre" onkeypress = "return validarSLetras(event)"  onpaste ="return false">
                     </h3>
                     
                     
@@ -44,7 +44,7 @@
             <div class="f2">
                 
                     <h3>Apellido
-                    <input type="text" class="Apd" name="Apellido" id = "Apellido">
+                    <input type="text" class="Apd" name="Apellido" id = "Apellido" onkeypress = "return validarSLetras(event)"  onpaste ="return false">
                     </h3>
                     
                

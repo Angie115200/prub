@@ -1,5 +1,5 @@
 <?php
-
+   
     class ModelSalidaI{//Creamos una clase
         
         public function BuscarProducto(){//Creamos una funcion
@@ -9,6 +9,7 @@
                 $productos = $bd->query("SELECT * FROM producto WHERE COD_PRODUCTO = $codigo")->fetch(PDO::FETCH_OBJ);//Ejecutamos una consulta
                 $productos -> cantidad = $cantidad;//Le asignamos al array una variable llamada cantidad
                 $_SESSION['productos'][] = $productos;//Llamamos el array almacenado en session usando []
+                
            
         }
         public function Cancelar(){
@@ -17,7 +18,7 @@
         public function GuardarS(){
             $codU = $_SESSION['datos']['COD_EMPLEADO'];//llamamos la session donde tenemos el codigo del empleado
             $cantidad = $_REQUEST['cantidad'];
-            $cantidadTotal = $_REQUEST[$cantidadTotal];
+            $cantidadTotal = $_SESSION['cantT'];
             $productos ->cantidad = $cantidad;
             $cantidadTotal = $_SESSION['cantT'];//Le asignamos a la variable la session que almacena la cantidad
             if($cantidadTotal <= 0){//Si la cantidad es menor o igual a 0 que mande una alerta
@@ -39,7 +40,7 @@
             $stmt = $bd->prepare("UPDATE `salida` SET `CANTIDAD_TOTAL`= $cantidadTotal WHERE COD_SALIDA = $id");//Modificamos la cantidad de la salida
             $stmt -> execute();
             unset($_SESSION['cantT']);//destruimos la session que almacena cantidad
-
+            unset($_SESSION['productos']);
             
         }
             }

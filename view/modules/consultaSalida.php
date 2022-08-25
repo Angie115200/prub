@@ -37,6 +37,7 @@
 
         ?>
         
+        
     </tbody>
 
 
@@ -48,16 +49,12 @@
         <form action="" method="POST" class = "formConsultaD" id = "formConsultaD">
 
             <input type="hidden" id = "codSalida" name = "codSalida">
-            <input type="submit" name="Buscar" id="Buscar">
+            <input type="submit" name="Buscar" id="Buscar" value = "MOSTRAR DETALLE">
         </form>
             <?php
-                if(isset($_POST['codSalida'])){
+               if(isset($_POST['codSalida'])){
                     $codigoBS = $_POST['codSalida'];
-                    $_SESSION['num'] = $codigoBS;
-                    $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
-                    $consulta = $bd->query("SELECT * FROM detalle_salida WHERE COD_SALIDA = $codigoBS")->fetch(PDO::FETCH_OBJ);
-                    $_SESSION['detallePRO'][] = $consulta;//Llamamos el array almacenado en session usando []
-                    print_r($_SESSION['detallePRO']);
+                    $_SESSION['num'] = $codigoBS;  
                 }
                 //echo $_SESSION['num'];
               
@@ -69,17 +66,28 @@
                     <td>CODIGO DE DETALLE SALIDA</td>
                     <td>CANTIDAD</td>
                     <td>CODIGO DEL PRODUCTO
+                      
+                    </td>
+                    <td>OPCIONES
                         <a href="javascript:ocultar()"><img src="view/img/cancelar.png" class = "cerrarCS"></a>
                     </td>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $ControllerDTSalida = new ControllerSalida();
+                $listarDTSalida = $ControllerDTSalida -> ConsultarDTSalida();
+
+                foreach($listarDTSalida as $dato){?>
                 <tr>
-                <td><?php ?></td>
-                <td><?php ?></td>
-                <td><?php ?></td>
+                <td><?php echo $dato['COD_DTSALIDA']?></td>
+                <td><?php echo $dato['CANTIDAD']?></td>
+                <td><?php echo $dato['COD_PRODUCTO']?></td>
+                <td><input type="submit" value = "Modificar"><input type="submit" value = "Eliminar"></td>
                 </tr>
-           
+           <?php
+                }
+           ?>
         </tbody>
     </table>
         </div>

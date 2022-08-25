@@ -28,24 +28,29 @@
         }
     */
 
+    public function mdlConsultarDTSalida(){
+        $_SESSION['num'];
+        echo $_SESSION['num'];
+        $CodSalida = $_SESSION['num'];
+        $sql = "CALL splConsultarDTSalida($CodSalida)";
+        $resultset = false;
+        
+    
+        try{
+            $con = new Conexion();
+            $stmt = $con -> conexion() -> prepare($sql);
+            $stmt -> execute();
+            $resultset = $stmt;
+            unset($_SESSION['num']);
+        }
+        catch(Exception $e){
+            echo "ERROR";
+        }
+        return $resultset;
+    }
     
 
-       
-        public function mdlConsultarDetalleS(){
-            $sql = "SELECT * FROM DETALLE_SALIDA WHERE COD_SALIDA = $CodSalida";
-            $Estado = false;
-            try{
-                $con = new Conexion();
-                $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam ( 1, $this->CodSalida, PDO::PARAM_INT);
-                $stmt -> execute();
-                $this -> Estado = true;
-            }
-            catch(Exception $e){
-                echo "ERROR EN EL DAO DE CONSULTAR DETALLE" . $e->getMessage();
-            }
-        }
-
+    
 
     }
 

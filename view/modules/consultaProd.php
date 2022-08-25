@@ -1,14 +1,5 @@
 <link rel="stylesheet" href="view/css/consultaU.css">
     
-    
-        <div class = "busq">
-            <div class = "b1">
-                <h3>Busqueda </h4>
-            </div>
-            <input type="text" name="" id="" class = "bar">       
-        </div>
-
-
     <div class = "container" >
     <h3>CONSULTA PRODUCTO</h3>
     <div class = "container2"> 

@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="img/LOGITO.png" type="image/x-icon">
     <link rel="stylesheet" href="view/css/registroProov.css">
     <script src="view/js/validacionProov.js"></script>
+    <script src="view/js/validacionGLetras.js"></script>
 </head>
 <?php
         require_once "header.php";
@@ -20,7 +21,7 @@
                         
 
                     <h3>Nombre
-                    <input type="text" class="nmb" name="Nombre" id = "Nombre">
+                    <input type="text" class="nmb" name="Nombre" id = "Nombre"  onkeypress = "return validarSLetras(event)"  onpaste ="return false">
                     </h3>
                             
                     <h3 class="cnt">NIT
@@ -35,7 +36,7 @@
             <div class="f2">
                 
                     <h3>Empresa
-                    <input type="text" name="Direccion" id = "Empresa">
+                    <input type="text" name="Direccion" id = "Empresa"  onkeypress = "return validarSLetras(event)"  onpaste ="return false">
                     </h3>
                     
                     <h3 class="crm">Direccion

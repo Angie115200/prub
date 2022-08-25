@@ -7,6 +7,7 @@
     <title>GINVZ</title>
     <link rel="stylesheet" href="view/css/registroProd.css">
     <script src="view/js/validarP.js"></script>
+    <script src="view/js/validacionGLetras.js"></script>
 </head>
 
    
@@ -18,7 +19,7 @@
 
             <div class = "f1">
                 <h4>Nombre
-                    <input type="text" name="Nombre" id = "NombreP">
+                    <input type="text" name="Nombre" id = "NombreP" onkeypress = "return validarSLetras(event)"  onpaste ="return false">
                 </h4>
                    
             <h4>Referencia

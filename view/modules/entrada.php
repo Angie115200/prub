@@ -5,9 +5,12 @@ $nombre = "";
 $precioPE = 0;
 $precioTotalE = 0;
 $cantidadTotalE  = 0;
-
+$productosE = 0;
 if(isset($_SESSION['productosE'])){
     $productosE = $_SESSION['productosE'];
+}
+else{
+    $productosE = array();
 }
 
 ?>
@@ -71,11 +74,20 @@ if(isset($_SESSION['productosE'])){
                 $operacion = $_REQUEST['operacion'];
                 $objDaoEntrada = new ModelEntradaI();            
                 switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
-                    case 'Buscar Producto' : $objDaoEntrada -> BuscarProductoE();//llame la funcion buscar cliente
+                    case 'Buscar Producto' : $objDaoEntrada -> BuscarProductoE();//llame la funcion buscar cliente?>
+                    <script>
+                        window.location = "index.php?ruta=Entrada";
+                    </script><?php
                     break;
-                    case 'Cancelar Entrada' : $objDaoEntrada -> CancelarE();//llame la funcion buscar cliente
+                    case 'Cancelar Entrada' : $objDaoEntrada -> CancelarE();//llame la funcion buscar cliente?>
+                    <script>
+                        window.location = "index.php?ruta=Entrada";
+                    </script><?php
                     break;
-                    case 'Guardar Entrada' : $objDaoEntrada -> GuardarE();//llame la funcion buscar cliente
+                    case 'Guardar Entrada' : $objDaoEntrada -> GuardarE();//llame la funcion buscar cliente?>
+                        <script>
+                            window.location = "index.php?ruta=Entrada";
+                        </script><?php
                     break;
         
                 } }

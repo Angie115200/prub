@@ -18,7 +18,5 @@ $result =  $_GET['disponibilidadP'];
 $pdf->Cell(60,10,$result,1, 1);
 
 
-
-
 $pdf->Output();
 ?>

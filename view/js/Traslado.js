@@ -1,27 +1,11 @@
-function abrir(){
-    document.getElementById('Items').style.display="block";
-}
-
-function abrirD(){
-    document.getElementById('Detalle').style.display="block";
-}
-
-function cerrarD(){
-    document.getElementById('Detalle').style.display="none";
-}
-
-function cerrarI(){
-    document.getElementById('Items').style.display="none";
-}
-
-function ModificarE(obj){
+function ModificarT(obj){
     codigoE = document.getElementById('codEntrada');
 
     codigoE.value = obj.children[0].innerHTML;
    
 }
 
-function EliminarE(obj){
+function EliminarT(obj){
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
         confirmButton: 'btn btn-success',
@@ -45,7 +29,7 @@ function EliminarE(obj){
             'La salida ha sido eliminado',
             'success'
         )
-        window.location = "index.php?ruta=ConsultaE&elimina="+obj.children[0].innerHTML;
+        window.location = "index.php?ruta=ConsultaT&elimina="+obj.children[0].innerHTML;
         } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel

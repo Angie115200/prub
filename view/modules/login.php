@@ -19,7 +19,7 @@
         <div class = "Form">
         <form action="" method="POST">
                 <h3>LOGIN</h3>
-                <img src="../img/icon.png" alt="">
+                <img src="view/img/icon.png" alt="">
                 <select name="Rol" id="">
                     <option value="1">Administrador</option>
                     <option value="2">Empleado</option>

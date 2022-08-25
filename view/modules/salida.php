@@ -54,7 +54,7 @@ else{
 
             </tbody>
         </table>
-        <input type="submit"  name = "operacion" value = "GuardarS">
+        <input type="submit"  name = "operacion" value = "Guardar salida">
         <input type="submit" value = "Cancelar" name = "operacion">
     </form>
    
@@ -64,15 +64,26 @@ else{
             $operacion = $_REQUEST['operacion'];
             $objDaoSalida = new ModelSalidaI();            
             switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
-                case 'Buscar Producto' : $objDaoSalida -> BuscarProducto();//llame la funcion buscar cliente
+                case 'Buscar Producto' : $objDaoSalida -> BuscarProducto();//llame la funcion buscar cliente?>
+                <script>
+                    window.location = "index.php?ruta=Salida";
+                </script>
+                <?php
                 break;
-                case 'Cancelar' : $objDaoSalida -> Cancelar();//llame la funcion buscar cliente
+                case 'Cancelar' : $objDaoSalida -> Cancelar();//llame la funcion buscar cliente?>
+                    <script>
+                        window.location = "index.php?ruta=Salida";
+                    </script><?php
                 break;
-                case 'GuardarS' : $objDaoSalida -> GuardarS();//llame la funcion buscar cliente
+                case 'Guardar salida' : $objDaoSalida -> GuardarS();//llame la funcion buscar cliente?>
+                <script>
+                    window.location = "index.php?ruta=Salida";
+                </script><?php
                 break;
     
             }
         }
+
        
     ?>
     </table>

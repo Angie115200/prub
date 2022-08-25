@@ -72,3 +72,4 @@ function ReporteP(obj){
     dato = "referenciaP="+referenciaP+"&nombreP="+nombreP+"&disponibilidadP="+disponibilidadP;
     window.open("view/modules/reportes/reporteProd.php?"+dato, '_blank');
 }
+

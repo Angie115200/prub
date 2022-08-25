@@ -7,6 +7,7 @@ $MotD = "";
 $Empresa = "";
 $productosD = "";
 
+
 if(isset($_SESSION['proveedor'])){//Si recibe la session de proveedor asigne los valores a las variables
     $codProve = $_SESSION['proveedor']->COD_PROVEEDOR;
     $NombreProve = $_SESSION['proveedor']->NOMBRE; 
@@ -16,6 +17,9 @@ if(isset($_SESSION['proveedor'])){//Si recibe la session de proveedor asigne los
 
 if(isset($_SESSION['productosD'])){//Si recibimos la session productos guardeme el array en una variable
     $productosD = $_SESSION['productosD'];
+}
+else{
+    $productosD = array();
 }
 
 
@@ -50,7 +54,7 @@ if(isset($_SESSION['productosD'])){//Si recibimos la session productos guardeme 
                                 <td><?php echo $codProve?></td>
                                 <td><?php echo $NombreProve?></td>
                                 <td><?php echo $Empresa?></td>
-                                <td><?php  echo $MotD = $_SESSION['MotD'] ?></td>
+                                <td><?php echo $MotD = $_SESSION['MotD'] ?></td>
                             </tr>
                     </tbody>
                     </table>
@@ -104,13 +108,25 @@ if(isset($_SESSION['productosD'])){//Si recibimos la session productos guardeme 
             $operacion = $_REQUEST['operacion'];
             $objDaoDevolucion = new ModelDevolucionI();            
             switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
-                case 'Buscar Producto' : $objDaoDevolucion -> BuscarProductoD();//llame la funcion buscar cliente
+                case 'Buscar Producto' : $objDaoDevolucion -> BuscarProductoD();//llame la funcion buscar cliente?>
+                    <script>
+                        window.location = "index.php?ruta=Devolucion";
+                    </script><?php
                 break;
-                case 'Buscar Proveedor' : $objDaoDevolucion -> BuscarProveedor();//llame la funcion buscar cliente
+                case 'Buscar Proveedor' : $objDaoDevolucion -> BuscarProveedor();//llame la funcion buscar clien?>
+                    <script>
+                        window.location = "index.php?ruta=Devolucion";
+                    </script><?php
                 break;
-                case 'Cancelar Detalle' : $objDaoDevolucion -> CancelarD();//llame la funcion buscar cliente
+                case 'Cancelar Detalle' : $objDaoDevolucion -> CancelarD();//llame la funcion buscar cliente?>
+                    <script>
+                        window.location = "index.php?ruta=Devolucion";
+                    </script><?php
                 break;
-                case 'Guardar devolucion' : $objDaoDevolucion -> GuardarD();//llame la funcion buscar cliente
+                case 'Guardar devolucion' : $objDaoDevolucion -> GuardarD();//llame la funcion buscar cliente?>
+                    <script>
+                        window.location = "index.php?ruta=Devolucion";
+                    </script><?php
                 break;
     
             } }
