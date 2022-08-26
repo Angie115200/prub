@@ -1,8 +1,10 @@
 function ModificarE(obj){
     codigoE = document.getElementById('codEntrada');
 
+
     codigoE.value = obj.children[0].innerHTML;
    
+    formConsultaE.submit();
 }
 
 function EliminarE(obj){
@@ -48,4 +50,24 @@ function EliminarE(obj){
     
     function ocultar(){
         document.getElementById('ContenedorDetalle').style.display="none";
+    }
+
+    
+    function ReporteGE(){
+
+        window.open("view/modules/reportes/reporteGE.php");
+    }
+
+    function ModificarDT(obj){
+        codigoDT = document.getElementById('DTEntrada');
+        codigoProd = document.getElementById('codProd');
+        cantidad = document.getElementById('cantidad');
+        precioU = document.getElementById('precioU')
+    
+    
+        codigoDT.value = obj.children[0].innerHTML;
+        cantidad.value = obj.children[2].innerHTML;
+        codigoProd.value = obj.children[1].innerHTML;
+        precioU.value = obj.children[3].innerHTML;
+       
     }

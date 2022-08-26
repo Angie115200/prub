@@ -52,7 +52,7 @@
             
             </table>   
             </div>
-            <input type="button" value="Reporte general" class = "ButtonRG" onclick = "ReporteG(this.parentElement.parentElement)">
+            <input type="button" value="Reporte general" class = "ButtonRG" onclick = "ReporteGP(this.parentElement.parentElement)">
             <?php
                 if(isset($_GET['elimina'])){//Si se manda por get eliminar haga lo siguiente
                     $objControladorProducto = new ControllerProducto();//Llame la clase por medio del objeto

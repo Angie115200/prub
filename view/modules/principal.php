@@ -50,6 +50,10 @@ if (isset($_GET['ruta'])){
         case 'ConsultaT':
             require_once "view/modules/consultarTraslado.php";
             break;
+        
+        case 'ConsultaD':
+            require_once "view/modules/consultarDev.php";
+        break;
 
         case 'usuario':
             if($_SESSION['datos']['COD_ROL'] == 2){

@@ -114,6 +114,109 @@ button{
     margin: 5% auto 0 auto;
 }
 
+.formularioDTS{
+    background-color: #34e89e;
+    width: 480px;
+    height: 400px;
+    margin: -250px 0 0 30%;
+    border: 2px solid black;
+    position: absolute;
+    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.formularioDTS img{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 3px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+
+.formularioDTS h2{
+    background-color: #91dfbe;
+    color: black;
+    text-align: center;
+    width: 100%;
+}
+
+h4{
+    width: 80%;
+    height: 20px;
+    background-color: black;
+    color: white;
+    display: block;
+    text-align: center;
+    margin: 50px 0 0 0;
+    z-index: 0;
+}
+
+.formularioDTS input{
+            width: 100%;
+            height: 20px;
+            background-color: white;
+            color: black;
+            margin-left: 0px;
+            display: block;
+            
+            z-index: 1;
+            
+}
+
+.ContModDev{
+    background-color: #34e89e;
+    width: 300px;
+    height: 300px;
+    margin: -100px 40% 0 40%;
+    position: absolute;
+}
+
+.ContModDev input{
+    width: 100%;
+
+}
+
+.ContModDev h2{
+    background-color: black;
+    width: 100%;
+    height: 20px;
+    font-size: 100%;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    display: flex;
+}
+
+.ContModDev h4{
+    margin: 40px auto 0 auto;
+}
+
+.ContModDev .Guardar{
+    background-color: black;
+    width: 80%;
+    height: 20px;
+    margin: 100px 0 0 10%;
+    color: white;
+}
+
+.f1{
+    width: 100%;
+    display: block;
+    margin-left:10%;
+    
+}
+
+.formularioDTS .Guardar{
+    width: 80%;
+    margin: 60px 0 0 0%;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
 .H2S{
     width: 100%;
     height: 30px;
@@ -125,7 +228,7 @@ button{
 .ContenedorDetalle{
     width: 50%;
     height: 100px;
-    display: none;
+    display: block;
     margin: 0px auto 0 auto;
    
 }

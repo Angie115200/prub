@@ -28,10 +28,26 @@
        
         $objDaoTraslado = new ModelTraslado($objDtoTraslado);
         //$objDaoSalida -> mdlEliminarDTSalida();
+        $objDaoTraslado -> mdlEliminarDTTraslado();
         $objDaoTraslado -> mdlEliminarTraslado();
         echo "<script>
             window.location = 'index.php?ruta=ConsultaT'
         </script>";
+    }
+
+    public function ConsultarDTTraslado(){
+        $array = false;
+    
+        try{
+            $objDtoDTTraslado = new DTTraslado(null, null, null, null);
+            $objDaoDTTraslado = new ModelDTTraslado($objDtoDTTraslado);
+            $array = $objDaoDTTraslado ->  mdlConsultarDTTraslado() -> fetchAll();
+          
+        }
+        catch(Exception $e){
+            echo "ERROR EN EL TRY CATCH";
+        }
+        return $array;
     }
 
 

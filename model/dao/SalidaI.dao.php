@@ -30,7 +30,10 @@
                 $stmt -> execute();
                 $id = $bd->lastInsertId();//recuperamos el ultimo id insertado
             //print_r($cantidad);
-            
+            $Estado = true;
+            if($Estado = true){
+                echo '<script language="javascript">alert("Devolucion registrada exitosamente");</script>';
+            }
             
             $productos = $_SESSION['productos'];
             foreach($productos as $a){ //Hacemos una insercion multiple y le ingresamos el ultimo id

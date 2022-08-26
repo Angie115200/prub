@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="view/css/consultaS.css">
+
 <script src="view/js/Salida.js"></script>
 
 <div class = "container">
@@ -13,18 +14,19 @@
         <td>DETALLE </td>
     </thead>
     <tbody>
+
         <?php
         $ControllerSalida = new ControllerSalida();
-        $listarEntrada = $ControllerSalida -> ConsultarSalida();
+        $listarSalida = $ControllerSalida -> ConsultarSalida();
 
-        foreach($listarEntrada as $dato){?>
+        foreach($listarSalida as $dato){?>
 
             <tr>
                 <td><?php   echo $dato["COD_SALIDA"]  ?></td>
                 <td><?php   echo $dato["FECHA"]   ?></td>
                 <td><?php   echo $dato["CANTIDAD_TOTAL"]?></td>
                 <td><?php   echo $dato["COD_EMPLEADO"]  ?></td>
-                <td><a href="javascript:abrir()"  onclick = "ModificarS(this.parentElement.parentElement)"><input type="submit" value="Consultar detalle" name = "id"  ></a><input type="submit" value="Eliminar" onclick = "EliminarS(this.parentElement.parentElement)"></td>
+                <td><input type="submit" value="Consultar detalle" onclick = "ModificarS(this.parentElement.parentElement)" name = "id" id = "Submit1" ><input type="submit" value="Eliminar" onclick = "EliminarS(this.parentElement.parentElement)"></td>
 
             </tr>
 
@@ -42,14 +44,14 @@
 
 
 </table>
-</div>  
+</div> 
+<input type="submit" value = "Reporte general" onclick = "ReporteGS(this.parentElement.parentElement)">  
 
         <div id = "ContenedorDetalle" class = "ContenedorDetalle">
            
         <form action="" method="POST" class = "formConsultaD" id = "formConsultaD">
 
             <input type="hidden" id = "codSalida" name = "codSalida">
-            <input type="submit" name="Buscar" id="Buscar" value = "MOSTRAR DETALLE">
         </form>
             <?php
                if(isset($_POST['codSalida'])){
@@ -68,35 +70,75 @@
                     <td>CODIGO DEL PRODUCTO
                       
                     </td>
-                    <td>OPCIONES
-                        <a href="javascript:ocultar()"><img src="view/img/cancelar.png" class = "cerrarCS"></a>
-                    </td>
+                    <td>OPCIONES</td>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $ControllerDTSalida = new ControllerSalida();
-                $listarDTSalida = $ControllerDTSalida -> ConsultarDTSalida();
+               
+                if(empty($_SESSION['num'])){
+                  ?>
+                    <span>SELECCIONE UN DETALLE</span>
+                  <?php
 
-                foreach($listarDTSalida as $dato){?>
-                <tr>
-                <td><?php echo $dato['COD_DTSALIDA']?></td>
-                <td><?php echo $dato['CANTIDAD']?></td>
-                <td><?php echo $dato['COD_PRODUCTO']?></td>
-                <td><input type="submit" value = "Modificar"><input type="submit" value = "Eliminar"></td>
-                </tr>
-           <?php
                 }
-           ?>
+                else{
+                    $ControllerDTSalida = new ControllerSalida();
+                    $listarDTSalida = $ControllerDTSalida -> ConsultarDTSalida();
+               
+                    foreach($listarDTSalida as $dato){?>
+                        <tr>
+                            <td><?php echo $dato['COD_DTSALIDA']?></td>
+                            <td><?php echo $dato['CANTIDAD']?></td>
+                            <td><?php echo $dato['COD_PRODUCTO']?></td>
+                            
+                            <td><input type="submit" value = "Modificar" onclick = "ModificarDT(this.parentElement.parentElement)"><td>
+                        </tr>
+                <?php
+                }}
+            
+                ?>
         </tbody>
+      
     </table>
         </div>
 
 </div>
-<?php
+
+        <div class = "ContModDev">
+            <h2>MODIFICAR DETALLE DE SALIDA</h1>
+            <form action="" method = "post" name = "formModDTSal">
+                <input type="hidden"  id = "DTSalida" name = "DTSalida">
+
+                <h4>
+                    Codigo del producto
+                    <input type="number"  id = "codProd" name = "codProd">
+                </h4>
+               
+
+                <h4>
+                    Cantidad
+                    <input type="number"  id = "cantidad" name = "cantidad">
+                </h4>
 
 
-
+             
+                  
+                <input type="submit" value="Guardar" class = "Guardar">
+            </form>
+        </div>
+        <?php
+            if(isset($_POST["codProd"])){//Si rececpiona nombre
+                $DTSal = $_REQUEST['DTSalida'];
+                $Cantidad = $_REQUEST['cantidad'];
+                $codPro = $_REQUEST['codProd'];
+                $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
+                $stmt = $bd->prepare("UPDATE `detalle_salida` SET `COD_DTSALIDA`='$DTSal',`COD_PRODUCTO`='$codPro',`CANTIDAD`='$Cantidad' WHERE `COD_DTSALIDA`='$DTSal'");//Modificamos la cantidad de la salida
+                $stmt -> execute();   
+                echo "<script>
+                window.location = 'index.php?ruta=ConsultaS'
+                </script>";
+            }
 ?>
 
 </body>

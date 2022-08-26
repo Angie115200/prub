@@ -73,3 +73,9 @@ function ReporteP(obj){
     window.open("view/modules/reportes/reporteProd.php?"+dato, '_blank');
 }
 
+function ReporteGP(){
+
+    window.open("view/modules/reportes/reporteGProd.php");
+}
+
+

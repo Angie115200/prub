@@ -86,7 +86,7 @@ else{
             <?php
  if(isset($_POST['operacion'])){
     $operacion = $_REQUEST['operacion'];
-    $objDaoTraslado = new ModelTraslado();            
+    $objDaoTraslado = new ModelDetalle();            
     switch ($operacion){//en caso de q operacion tenga el valor buscar cliente
         case 'Buscar bodega' : $objDaoTraslado -> BuscarBodega();//llame la funcion buscar cliente?>
             <script>

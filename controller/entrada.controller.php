@@ -11,6 +11,7 @@
         );
        
         $objDaoEntrada = new ModelEntrada($objDtoEntrada);
+        $objDaoEntrada -> mdlEliminarDTEntrada();
         $objDaoEntrada -> mdlEliminarEntrada();
         //$objDaoEntrada -> mdlEliminarSalida();
         echo "<script>
@@ -25,6 +26,20 @@
                 $objDtoEntrada = new Entrada(null, null, null, null, null);
                 $objDaoEntrada = new ModelEntrada($objDtoEntrada);
                 $array = $objDaoEntrada ->  mdlConsultarEntrada() -> fetchAll();
+            }
+            catch(Exception $e){
+                echo "ERROR EN EL TRY CATCH";
+            }
+            return $array;
+        }
+
+        public function ConsultarDTEntrada(){
+            $array = false;
+        
+            try{
+                $objDtoDTEntrada = new DTEntrada(null, null, null, null, null, null);
+                $objDaoDTEntrada = new ModelDTEntrada($objDtoDTEntrada);
+                $array = $objDaoDTEntrada ->  mdlConsultarDTEntrada() -> fetchAll();
             }
             catch(Exception $e){
                 echo "ERROR EN EL TRY CATCH";

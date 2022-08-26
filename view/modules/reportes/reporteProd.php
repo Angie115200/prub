@@ -3,6 +3,14 @@ require('../../../view/plugins/FPDP/fpdf.php');
 
 $pdf = new FPDF();
 $pdf->AddPage();
+
+// Movernos a la derecha
+$pdf->SetFont('Arial','B',16);
+// Título
+$pdf->Cell(60);
+$pdf->Cell(60,10,'GestionINVZ',0,0,'C');
+// Salto de línea
+$pdf->Ln(20);
 $pdf->SetFont('Arial','B',16);
 $pdf->SetFillColor(139, 251, 238);
 $pdf->Cell(180,6,"REPORTE DEL PRODUCTO", 1, 1, "C", 1);

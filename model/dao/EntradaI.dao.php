@@ -32,6 +32,10 @@
                 $stmt = $bd->prepare("INSERT INTO ENTRADA (COD_EMPLEADO) VALUES('$codU')");//Inserte la entrada
                 $stmt -> execute();
                 $id = $bd->lastInsertId();    
+                $Estado = true;
+                if($Estado = true){
+                    echo '<script language="javascript">alert("Entrada registrada exitosamente");</script>';
+                }
             //print_r($cantidad);
             
           

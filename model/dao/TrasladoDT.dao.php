@@ -1,6 +1,6 @@
 <?php
 
-    class ModelTraslado{
+    class ModelDetalle{
         function BuscarBodega(){
             $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
             $codBD = $_REQUEST['codBodega'];//le asignamos a la variable doccumento el valor recibido de documento

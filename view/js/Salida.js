@@ -5,14 +5,16 @@ function ModificarS(obj){
 
     mcodigo.value = obj.children[0].innerHTML;
    
+    formConsultaD.submit();
 }
 
+
 function abrir(){
-    document.getElementById('ContenedorDetalle').style.display="block";
+    document.getElementById('formulario').style.display="block";
 }
 
 function ocultar(){
-    document.getElementById('ContenedorDetalle').style.display="none";
+    document.getElementById('formulario').style.display="none";
 }
 
 function EliminarS(obj){
@@ -51,3 +53,20 @@ function EliminarS(obj){
         )
         }
     })}
+
+    function ModificarDT(obj){
+        codigoDT = document.getElementById('DTSalida');
+        codigoProd = document.getElementById('codProd');
+        cantidad = document.getElementById('cantidad');
+    
+    
+        codigoDT.value = obj.children[0].innerHTML;
+        cantidad.value = obj.children[1].innerHTML;
+        codigoProd.value = obj.children[2].innerHTML;
+       
+    }
+
+    function ReporteGS(){
+
+        window.open("view/modules/reportes/reporteGS.php");
+    }

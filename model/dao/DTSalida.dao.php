@@ -1,11 +1,13 @@
 <?php
-     //include_once "model/conexion.php";
+    
     class ModelDTSalida{
+        
         private $codDTSalida;
         private $CantidadUni;
         private $CodProducto;
         private $CodSalida;
         private $Estado;
+        
 
         public function __construct($objDtoDTSalida){
             $this->codDTSalida = $objDtoDTSalida -> getCodDTSalida();
@@ -14,23 +16,11 @@
             $this->CodSalida = $objDtoDTSalida -> getCodSalida();
         }
 
-       /* public function guardarID(){
-            $sql = "SELECT MAX(COD_SALIDA) FROM SALIDA";
-            try{
-                $con = new Conexion();
-                $stmt = $con -> conexion() -> prepare($sql);
-                $stmt = execute();
-            }
-            catch(Exception $e){
-                echo "ERROR";
-            }
-
-        }
-    */
-
+      
+       
     public function mdlConsultarDTSalida(){
-        $_SESSION['num'];
-        echo $_SESSION['num'];
+        $_SESSION['num'];  
+        //echo $_SESSION['num'];
         $CodSalida = $_SESSION['num'];
         $sql = "CALL splConsultarDTSalida($CodSalida)";
         $resultset = false;

@@ -1,18 +1,24 @@
 <?php
 
-    class ModelEntrada{
+    class ModelDevolucion{
+        private $codDev;//CREAR VARIABLES 
+        private $cantTD;
+        private $FechaD;
+        private $ModD;
+        private $codE;
+        private $codProv;
 
+        public function __construct($objDtoDevolucion){//METODO DE ARRANQUE
+            $this->codDev = $objDtoDevolucion -> getCodDev();
+            $this->cantTD = $objDtoDevolucion -> getCanTD(); 
+            $this->FechaD = $objDtoDevolucion -> getFechaD(); 
+            $this->ModD = $objDtoDevolucion -> getModD(); 
+            $this->codE = $objDtoDevolucion -> getCodE(); 
+            $this->codProv = $objDtoDevolucion -> getCodProv(); 
+    }
 
-        public function __construct($objDtoEntrada){
-            $this -> codEntrada = $objDtoEntrada -> getCodEntrada();
-            $this -> cantidadT = $objDtoEntrada -> getCantidadT();
-            $this -> precioTotal = $objDtoEntrada -> getPrecioT();
-            $this -> fecha = $objDtoEntrada -> getFecha();
-            $this -> codEmpleado = $objDtoEntrada -> getCodE();
-        }
-
-        public function mdlConsultarEntrada(){
-            $sql = "CALL splConsultarEntrada()";
+        public function mdlConsultarDevolucion(){
+            $sql = "CALL splConsultarDevolucion()";
             $resultset = false;
             
         
@@ -28,14 +34,14 @@
             return $resultset;
         }
 
-        public function mdlEliminarEntrada(){
-            $sql = "CALL splEliminarEntrada(?)";
+        public function mdlEliminarDevolucion(){
+            $sql = "CALL splEliminarDevolucion(?)";
             $this->Estado = False;
 
             try{
                 $con = new Conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->codEntrada, PDO::PARAM_INT);
+                $stmt -> bindParam(1, $this->codDev, PDO::PARAM_INT);
                 $stmt -> execute();
                 $this->Estado = true;
         } 
@@ -45,15 +51,14 @@
         return $this-> Estado;
         
         }
-
-        public function mdlEliminarDTEntrada(){
-            $sql = "DELETE FROM `detalle_entrada` WHERE `COD_ENTRADA` = ?";
+        public function mdlEliminarDTDevolucion(){
+            $sql = "DELETE FROM `detalle_devolucion` WHERE `COD_DEVOLUCION` = ?";
             $this->Estado = False;
 
             try{
                 $con = new Conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->codEntrada, PDO::PARAM_INT);
+                $stmt -> bindParam(1, $this->codDev, PDO::PARAM_INT);
                 $stmt -> execute();
                 $this->Estado = true;
         } 
@@ -63,8 +68,8 @@
         return $this-> Estado;
         
         }
-
     }
+
 
 
 ?>
