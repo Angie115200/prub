@@ -26,7 +26,10 @@
                 <td><?php   echo $dato["CANTIDAD_TOTAL"]?></td>
                 <td><?php   echo $dato["PRECIO_TOTAL"]?></td>
                 <td><?php   echo $dato["COD_EMPLEADO"]  ?></td>
-                <td><input type="submit" value="Consultar detalle" name = "id" onclick = "ModificarE(this.parentElement.parentElement)" ></a><input type="submit" value="Eliminar" onclick = "EliminarE(this.parentElement.parentElement)"></td>
+                <td><input type="submit" value="Consultar detalle" name = "id" onclick = "ModificarE(this.parentElement.parentElement)">
+                <input type="submit" value="Eliminar" onclick = "EliminarE(this.parentElement.parentElement)">
+                <input type="submit" value = "Reporte"  onclick = "ReporteE(this.parentElement.parentElement)">
+                </td>
 
             </tr>
 
@@ -96,7 +99,7 @@
                 <td><?php echo $dato['SUBTOTAL']?></td>
                 <td>
                 <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)"> <input type="submit" value = "Modificar"></a> 
-                <input type="submit" value = "Eliminar"></td>   
+                <input type="submit" value = "Eliminar" onclick = "EliminarDT(this.parentElement.parentElement)"></td>   
                
                 </tr>
            <?php
@@ -150,7 +153,10 @@
                 </script>";
             }
             
-           
+            if(isset($_GET['eliminaDT'])){
+                $objControllerEntrada = new EntradaController();
+                $objControllerEntrada->EliminarDTEntrada();
+            }
             
         ?>
 </div>

@@ -50,6 +50,20 @@
         return $array;
     }
 
+    public function EliminarDTDevolucion(){
+        $objDtoDTDevolucion = new DTDevolucion(
+        $_GET['eliminaDT'],
+        NULL,
+        NULL,
+        NULL
+        );
+
+    $objDaoDTDevolucion = new ModelDTDevolucion($objDtoDTDevolucion);
+    $objDaoDTDevolucion -> mdlEliminarDTDevolucion();
+    echo "<script>
+        window.location = 'index.php?ruta=ConsultaD'
+    </script>";
+}
    
     }
 

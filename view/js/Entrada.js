@@ -84,3 +84,55 @@ function EliminarE(obj){
         precioU.value = obj.children[3].innerHTML;
        
     }
+
+    function EliminarDT(obj){
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+        
+        swalWithBootstrapButtons.fire({
+            title: 'Desea borrar?',
+            text: 'No se podra revertir si se borra!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: 'Si' ,
+            cancelButtonText: 'No, cancelelo!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Entrada',
+                'El detalle entrada ha sido eliminado',
+                'success'
+            )
+            window.location = "index.php?ruta=ConsultaE&eliminaDT="+obj.children[0].innerHTML;
+            } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+            ) {
+            swalWithBootstrapButtons.fire(
+                'Entrada',
+                'No se elimino',
+                'error'
+            )
+            }
+        })}
+
+    function ReporteE(obj){
+        codigoE = document.getElementById('codEntrada');
+
+
+        codigoE = obj.children[0].innerHTML;
+       
+       
+      
+
+
+        dato = "codEntrada="+codigoE;
+        window.open("view/modules/reportes/reporteE.php?"+dato, '_blank');
+    }

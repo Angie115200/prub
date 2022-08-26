@@ -142,11 +142,9 @@
                 </script>";
             }
 
-            if(isset($_POST['so'])){
-                $DTdev = $_REQUEST['DTdevolucion'];
-                $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
-                $stmt = $bd->prepare("DELETE FROM `detalle_devolucion` WHERE `COD_DTDEVOLUCION` = $DTdev");//Modificamos la cantidad de la salida
-                $stmt -> execute();   
+            if(isset($_GET['eliminaDT'])){
+                $objControllerDTDevolucion = new ControllerDevolucion();
+                $objControllerDTDevolucion->EliminarDTDevolucion();
             }
         ?>
         </div>  

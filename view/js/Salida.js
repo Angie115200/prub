@@ -55,23 +55,6 @@ function EliminarS(obj){
         }
     })}
 
-    function ModificarDT(obj){
-        codigoDT = document.getElementById('DTSalida');
-        codigoProd = document.getElementById('codProd');
-        cantidad = document.getElementById('cantidad');
-    
-    
-        codigoDT.value = obj.children[0].innerHTML;
-        cantidad.value = obj.children[1].innerHTML;
-        codigoProd.value = obj.children[2].innerHTML;
-       
-    }
-
-    function ReporteGS(){
-
-        window.open("view/modules/reportes/reporteGS.php");
-    }
-
     function ReporteS(obj){
         mcodigo = document.getElementById('codSalida');
         
@@ -85,3 +68,59 @@ function EliminarS(obj){
         dato = "codSalida="+mcodigo;
         window.open("view/modules/reportes/reporteS.php?"+dato, '_blank');
     }
+
+    function ReporteGS(){
+
+        window.open("view/modules/reportes/reporteGS.php");
+    }
+
+    function ModificarDT(obj){
+        codigoDT = document.getElementById('DTSalida');
+        codigoProd = document.getElementById('codProd');
+        cantidad = document.getElementById('cantidad');
+    
+    
+        codigoDT.value = obj.children[0].innerHTML;
+        cantidad.value = obj.children[1].innerHTML;
+        codigoProd.value = obj.children[2].innerHTML;
+       
+    }
+
+   
+    function EliminarDT(obj){
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+        
+        swalWithBootstrapButtons.fire({
+            title: 'Desea borrar?',
+            text: 'No se podra revertir si se borra!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: 'Si' ,
+            cancelButtonText: 'No, cancelelo!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Salida',
+                'El detalle salida ha sido eliminado',
+                'success'
+            )
+            window.location = "index.php?ruta=ConsultaS&eliminaDT="+obj.children[0].innerHTML;
+            } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+            ) {
+            swalWithBootstrapButtons.fire(
+                'Traslado',
+                'No se elimino',
+                'error'
+            )
+            }
+        })}

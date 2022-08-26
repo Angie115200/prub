@@ -95,7 +95,10 @@
                             <td><?php echo $dato['COD_PRODUCTO']?></td>
                             
                             <td>
-                                <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)"><input type="submit" value = "Modificar" ></a><td>
+                                <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)">
+                                <input type="submit" value = "Modificar" ></a>
+                                <input type="submit" value = "Eliminar" onclick = "EliminarDT(this.parentElement.parentElement)">
+                                <td>
                         </tr>
                 <?php
                 }}
@@ -143,6 +146,12 @@
                 echo "<script>
                 window.location = 'index.php?ruta=ConsultaS'
                 </script>";
+            }
+
+            
+            if(isset($_GET['eliminaDT'])){
+                $objControllerSalida = new ControllerSalida();
+                $objControllerSalida->EliminarDTSalida();
             }
 ?>
 

@@ -20,9 +20,9 @@ function EliminarT(obj){
         title: 'Desea borrar?',
         text: 'No se podra revertir si se borra!',
         icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Si',
+        showCancelButton: true,   
         cancelButtonText: 'No, cancelelo!',
+        confirmButtonText: 'Si',
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
@@ -43,6 +43,21 @@ function EliminarT(obj){
         )
         }
     })}
+
+
+
+    function ReporteT(obj){
+        codigoT = document.getElementById('codTraslado');
+
+        codigoT = obj.children[0].innerHTML;
+       
+       
+      
+
+
+        dato = "codTraslado="+codigoT;
+        window.open("view/modules/reportes/reporteT.php?"+dato, '_blank');
+    }
 
     function abrirMD(){
         document.getElementById('ContModDev').style.display="block";
@@ -67,3 +82,42 @@ function EliminarT(obj){
 
         window.open("view/modules/reportes/reporteGT.php");
     }
+
+    
+    function EliminarDT(obj){
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+        
+        swalWithBootstrapButtons.fire({
+            title: 'Desea borrar?',
+            text: 'No se podra revertir si se borra!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: 'Si' ,
+            cancelButtonText: 'No, cancelelo!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Traslado',
+                'El taslado ha sido eliminado',
+                'success'
+            )
+            window.location = "index.php?ruta=ConsultaT&eliminaDT="+obj.children[0].innerHTML;
+            } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+            ) {
+            swalWithBootstrapButtons.fire(
+                'Traslado',
+                'No se elimino',
+                'error'
+            )
+            }
+        })}

@@ -1,19 +1,7 @@
 <?php
 
     class ControllerSalida{
-       /* public function InsertarSalida($codE){
-
-            try{
-                $objDtoSalida = new Salida(null,null, null, $codE);  
-                $objDtoSalida -> setcodE($codE);
-
-                $obDaoSalida = new ModelSalida($objDtoSalida);
-                $obDaoSalida -> mdlInsertarSalida();
-            }
-            catch(Exception $e){
-                echo "ERORR EN EL CATCH";
-            }
-        }*/
+      
         
 
 
@@ -54,32 +42,36 @@
   
 
 
-public function ConsultarDTSalida(){
-    $array = false;
+    public function ConsultarDTSalida(){
+        $array = false;
 
-    try{
-        $objDtoDTSalida = new DTSalida(null, null, null, null);
-        $objDaoDTSalida = new ModelDTSalida($objDtoDTSalida);
-        $array = $objDaoDTSalida ->  mdlConsultarDTSalida() -> fetchAll();
-    }
-    catch(Exception $e){
-        echo "ERROR EN EL TRY CATCH";
-    }
-    return $array;
-}
-       /* public function ConsultarId(){
-            $array = false;
         try{
-            $objDtoSalida = new Salida(null, null, null, null);
-            $objDaoSalida = new ModelSalida($objDtoSalida);
-            $array = $objDaoSalida -> mdlConsultarId() -> fetchAll();
+            $objDtoDTSalida = new DTSalida(null, null, null, null);
+            $objDaoDTSalida = new ModelDTSalida($objDtoDTSalida);
+            $array = $objDaoDTSalida ->  mdlConsultarDTSalida() -> fetchAll();
         }
         catch(Exception $e){
-            echo "ERROR";
+            echo "ERROR EN EL TRY CATCH";
         }
         return $array;
-        }
-    */
+    }
+
+    public function EliminarDTSalida(){
+        $objDtoDTSalida = new DTSalida(
+        $_GET['eliminaDT'],
+        NULL,
+        NULL,
+        NULL
+        );
+
+    $objDaoDTTraslado = new ModelDTSalida($objDtoDTSalida);
+    $objDaoDTTraslado -> mdlEliminarDTSalida();
+    echo "<script>
+        window.location = 'index.php?ruta=ConsultaS'
+    </script>";
+}
+
+
     }
 
 ?>

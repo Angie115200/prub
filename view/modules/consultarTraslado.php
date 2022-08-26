@@ -1,5 +1,10 @@
+<head>
 <link rel="stylesheet" href="view/css/consultaS.css">
 <script src="view/js/Traslado.js"></script>
+
+</head>
+
+
 
 <div class = "container">
     <h2 class = "H2S">CONSULTAR TRASLADO</h2>
@@ -26,7 +31,10 @@
                 <td><?php   echo $dato["CANTIDAD_TOTAL"]?></td>
                 <td><?php   echo $dato["COD_EMPLEADO"]  ?></td>
                 <td><?php   echo $dato['COD_BODEGA']?></td>
-                <td><a href="javascript:abrir()"  onclick = "ModificarT(this.parentElement.parentElement)"><input type="submit" value="Consultar detalle" name = "id"  ></a><input type="submit" value="Eliminar" onclick = "EliminarT(this.parentElement.parentElement)"></td>
+                <td><a href="javascript:abrir()"  onclick = "ModificarT(this.parentElement.parentElement)">
+                <input type="submit" value="Consultar detalle" name = "id"  ></a><input type="submit" value="Eliminar" onclick = "EliminarT(this.parentElement.parentElement)">
+                <input type="submit" value = "Reporte"  onclick = "ReporteT(this.parentElement.parentElement)">
+                </td>
 
             </tr>
 
@@ -93,7 +101,8 @@
                             
                             <td>
                             <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)">
-                            <input type="submit" value = "Modificar"></a>    
+                            <input type="submit" value = "Modificar"></a> 
+                            <input type="submit" value = "Eliminar"  onclick = "EliminarDT(this.parentElement.parentElement)">
                             <td>
                         </tr>
                 <?php
@@ -136,6 +145,11 @@
                 echo "<script>
                 window.location = 'index.php?ruta=ConsultaT'
                 </script>";
+            }
+
+            if(isset($_GET['eliminaDT'])){
+                $objControllerTraslado = new ControllerTraslado();
+                $objControllerTraslado->EliminarDTTraslado();
             }
         ?>
 </div>

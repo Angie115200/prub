@@ -77,20 +77,13 @@ tr, td{
 
 }
 
-.btns{
-    background-color: black;
-    color: white;
-    float: right;
-    width: 120px;
-    margin: 0 2px 0 0;
-}
+
 
 button{
     background-color: black;
+    color: white;
     cursor: pointer;
-    display: flex;
-    margin-left: 88%;
-    margin-top: -35px;
+    margin: 0 0 0 20px;
 }
 
 

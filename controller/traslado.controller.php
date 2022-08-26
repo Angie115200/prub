@@ -50,6 +50,22 @@
         return $array;
     }
 
+    
+    public function EliminarDTTraslado(){
+        $objDtoDTTraslado = new DTTraslado(
+        $_GET['eliminaDT'],
+        NULL,
+        NULL,
+        NULL
+    );
+   echo "si";
+    $objDaoDTTraslado = new ModelDTTraslado($objDtoDTTraslado);
+    //$objDaoSalida -> mdlEliminarDTSalida();
+    $objDaoDTTraslado -> mdlEliminarDTTraslado();
+    echo "<script>
+        window.location = 'index.php?ruta=ConsultaT'
+    </script>";
+}
 
     }
 

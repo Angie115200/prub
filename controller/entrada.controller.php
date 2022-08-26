@@ -46,6 +46,22 @@
             }
             return $array;
         }
+        public function EliminarDTEntrada(){
+            $objDtoDTEntrada = new DTEntrada(
+            $_GET['eliminaDT'],
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL
+            );
+    
+        $objDaoDTEntrada = new ModelDTEntrada($objDtoDTEntrada);
+        $objDaoDTEntrada -> mdlEliminarDTEntrada();
+        echo "<script>
+            window.location = 'index.php?ruta=ConsultaE'
+        </script>";
+    }
 
     }
 

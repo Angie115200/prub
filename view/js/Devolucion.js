@@ -14,13 +14,7 @@ function ocultarMD(){
     document.getElementById('ContModDev').style.display="none";
 }
 
-function EliminarDT(){
-    codigoD = document.getElementById('codDev');
 
-    codigoD.value = obj.children[0].innerHTML;
-
-    rap.submit();
-}
 
 function ModificarDT(obj){
     codigoDT = document.getElementById('DTdevolucion');
@@ -87,3 +81,41 @@ function EliminarD(obj){
         dato = "codDev="+codigoD;
         window.open("view/modules/reportes/reporteD.php?"+dato, '_blank');
     }
+
+    function EliminarDT(obj){
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+        
+        swalWithBootstrapButtons.fire({
+            title: 'Desea borrar?',
+            text: 'No se podra revertir si se borra!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: 'Si' ,
+            cancelButtonText: 'No, cancelelo!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Devolucion',
+                'El detalle devolucion ha sido eliminado',
+                'success'
+            )
+            window.location = "index.php?ruta=ConsultaD&eliminaDT="+obj.children[0].innerHTML;
+            } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+            ) {
+            swalWithBootstrapButtons.fire(
+                'Devolucion ',
+                'No se elimino',
+                'error'
+            )
+            }
+        })}
