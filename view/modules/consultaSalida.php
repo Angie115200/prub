@@ -26,7 +26,9 @@
                 <td><?php   echo $dato["FECHA"]   ?></td>
                 <td><?php   echo $dato["CANTIDAD_TOTAL"]?></td>
                 <td><?php   echo $dato["COD_EMPLEADO"]  ?></td>
-                <td><input type="submit" value="Consultar detalle" onclick = "ModificarS(this.parentElement.parentElement)" name = "id" id = "Submit1" ><input type="submit" value="Eliminar" onclick = "EliminarS(this.parentElement.parentElement)"></td>
+                <td><input type="submit" value="Consultar detalle" onclick = "ModificarS(this.parentElement.parentElement)" name = "id" id = "Submit1" ><input type="submit" value="Eliminar" onclick = "EliminarS(this.parentElement.parentElement)">
+                <input type="submit" value = "Reporte"  onclick = "ReporteS(this.parentElement.parentElement)">
+                </td>
 
             </tr>
 
@@ -45,7 +47,7 @@
 
 </table>
 </div> 
-<input type="submit" value = "Reporte general" onclick = "ReporteGS(this.parentElement.parentElement)">  
+<input type="submit" value = "Reporte general" onclick = "ReporteGS(this.parentElement.parentElement)" class = "ReporteG">  
 
         <div id = "ContenedorDetalle" class = "ContenedorDetalle">
            
@@ -92,7 +94,8 @@
                             <td><?php echo $dato['CANTIDAD']?></td>
                             <td><?php echo $dato['COD_PRODUCTO']?></td>
                             
-                            <td><input type="submit" value = "Modificar" onclick = "ModificarDT(this.parentElement.parentElement)"><td>
+                            <td>
+                                <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)"><input type="submit" value = "Modificar" ></a><td>
                         </tr>
                 <?php
                 }}
@@ -105,8 +108,10 @@
 
 </div>
 
-        <div class = "ContModDev">
-            <h2>MODIFICAR DETALLE DE SALIDA</h1>
+        <div class = "ContModDev" id = "ContModDev">
+            <h2>MODIFICAR DETALLE DE SALIDA
+                <a href="javascript:ocultarMD()"><img src="view/img/cancelar.png"></a>
+            </h2>
             <form action="" method = "post" name = "formModDTSal">
                 <input type="hidden"  id = "DTSalida" name = "DTSalida">
 
@@ -118,9 +123,9 @@
 
                 <h4>
                     Cantidad
-                    <input type="number"  id = "cantidad" name = "cantidad">
+                    
                 </h4>
-
+                <input type="number"  id = "cantidad" name = "cantidad" class = "ca">
 
              
                   

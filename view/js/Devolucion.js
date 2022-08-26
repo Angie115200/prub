@@ -6,6 +6,22 @@ function ModificarD(obj){
     formConsultaD.submit();
 }
 
+function abrirMD(){
+    document.getElementById('ContModDev').style.display="block";
+}
+
+function ocultarMD(){
+    document.getElementById('ContModDev').style.display="none";
+}
+
+function EliminarDT(){
+    codigoD = document.getElementById('codDev');
+
+    codigoD.value = obj.children[0].innerHTML;
+
+    rap.submit();
+}
+
 function ModificarDT(obj){
     codigoDT = document.getElementById('DTdevolucion');
     codigoProd = document.getElementById('codProd');
@@ -37,8 +53,8 @@ function EliminarD(obj){
     }).then((result) => {
         if (result.isConfirmed) {
         swalWithBootstrapButtons.fire(
-            'Salida',
-            'La salida ha sido eliminado',
+            'Devolucion',
+            'La devolucion ha sido eliminado',
             'success'
         )
         window.location = "index.php?ruta=ConsultaD&elimina="+obj.children[0].innerHTML;
@@ -59,9 +75,15 @@ function EliminarD(obj){
         window.open("view/modules/reportes/reporteGD.php");
     }
 
-    function ReporteD(){
-
-        formConsultaD.submit();
     
-        window.open("view/modules/reportes/reporteD.php");
+
+
+    function ReporteD(obj){
+        codigoD = document.getElementById('codDev');
+        
+        codigoD = obj.children[0].innerHTML;
+
+
+        dato = "codDev="+codigoD;
+        window.open("view/modules/reportes/reporteD.php?"+dato, '_blank');
     }

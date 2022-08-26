@@ -46,7 +46,7 @@
 </table>
 
 </div>  
-<input type="submit" value = "Reporte general" onclick = "ReporteGT(this.parentElement.parentElement)">  
+<input type="submit" value = "Reporte general" onclick = "ReporteGT(this.parentElement.parentElement)" class = "ReporteG">  
 
         <div id = "ContenedorDetalle" class = "ContenedorDetalle">
            
@@ -91,7 +91,10 @@
                             <td><?php echo $dato['CANTIDAD_UNIDAD']?></td>
                             <td><?php echo $dato['COD_PRODUCTO']?></td>
                             
-                            <td><input type="submit" value = "Modificar"  onclick = "ModificarDT(this.parentElement.parentElement)"><td>
+                            <td>
+                            <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)">
+                            <input type="submit" value = "Modificar"></a>    
+                            <td>
                         </tr>
                 <?php
                 }}
@@ -101,7 +104,10 @@
       
     </table>
         </div>
-        <div class = "ContModDev">
+        <div class = "ContModDev" id = "ContModDev">
+            <h2>MODIFICAR DETALLE TRASLADO
+                <a href="javascript:ocultarMD()"><img src="view/img/cancelar.png"></a>
+            </h2>
             <form action="" method = "post" name = "formModTras">
                 <input type="hidden"  id = "DTTraslado" name = "DTTraslado">
 
@@ -112,10 +118,11 @@
 
                 <h4>
                     Cantidad
-                    <input type="number"  id = "cantidad" name = "cantidad">
+                   
                 </h4>
+                <input type="number"  id = "cantidad" name = "cantidad" class = "ca"> 
                   
-                <input type="submit" value="Guardar">
+                <input type="submit" value="Guardar" class = "Guardar">
             </form>
         </div>
        <?php

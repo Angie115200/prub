@@ -24,7 +24,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(10);
     // Título
-    $this->Cell(160,10,'Reporte de devolucion ',1,0,'C');
+    $this->Cell(160,10,'Reporte de salida ',1,0,'C');
     // Salto de línea
     $this->Ln(10);  
     
@@ -43,8 +43,8 @@ function Footer()
 }
 //xd
 $bd = mysqli_connect("localhost", "root", "", "GINVZ");
-$result =  $_GET['codDev'];
-$consulta = "SELECT * FROM devolucion INNER JOIN detalle_devolucion ON devolucion.COD_DEVOLUCION = $result;";
+$result =  $_GET['codSalida'];
+$consulta = "SELECT * FROM salida INNER JOIN detalle_salida ON salida.COD_SALIDA = $result;";
 $resultado = mysqli_query($bd, $consulta);
 
 $pdf = new PDF();
@@ -53,21 +53,17 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','B',10);
 $pdf->SetFillColor(139, 251, 238);
 while ($row=$resultado->fetch_assoc()) {
-    $pdf->Cell(40,10,'#Devolucion',1,0,'C',0);
-	$pdf->Cell(40,10,'Fecha',1,0,'C',0);
-    $pdf->Cell(40,10,'#Proveedor',1,0,'C',0);
-	$pdf->Cell(30,10,'Cantidad',1,0,'C',0);
-    $pdf->Cell(35,10,'Motivo',1,1,'C',0);
-	$pdf->Cell(40,10,$row['COD_DEVOLUCION'],1,0,'C',0);
-	$pdf->Cell(40,10,$row['FECHA'],1,0,'C',0);
-    $pdf->Cell(40,10,$row['COD_PROVEEDOR'],1,0,'C',0);
-	$pdf->Cell(30,10,$row['CANTIDAD_TOTAL'],1,0,'C',0);
-    $pdf->Cell(35,10,$row['MOTIVO_DEVOLUCION'],1,1,'C',0);
+    $pdf->Cell(61.7,10,'#Salida',1,0,'C',0);
+	$pdf->Cell(61.7,10,'Fecha',1,0,'C',0);
+    $pdf->Cell(61.7,10,'Cantidad',1,1,'C',0);
+	$pdf->Cell(61.7,10,$row['COD_SALIDA'],1,0,'C',0);
+	$pdf->Cell(61.7,10,$row['FECHA'],1,0,'C',0);
+    $pdf->Cell(61.7,10,$row['CANTIDAD_TOTAL'],1,1,'C',0);
     $pdf->Cell(61.7,10,'#Detalle',1,0,'C',0);
     $pdf->Cell(61.7,10,'Cantidad unitaria',1,0,'C',0);
     $pdf->Cell(61.7,10,'Codigo de producto',1,1,'C',0);
-    $pdf->Cell(61.7,10,$row['COD_DTDEVOLUCION'],1,0,'C',0);
-    $pdf->Cell(61.7,10,$row['CANTIDAD_UNIDAD'],1,0,'C',0);
+    $pdf->Cell(61.7,10,$row['COD_DTSALIDA'],1,0,'C',0);
+    $pdf->Cell(61.7,10,$row['CANTIDAD'],1,0,'C',0);
     $pdf->Cell(61.7,10,$row['COD_PRODUCTO'],1,1,'C',0);
    
    

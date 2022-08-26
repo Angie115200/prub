@@ -21,14 +21,14 @@ function EliminarT(obj){
         text: 'No se podra revertir si se borra!',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'SIIi, Borralo!',
+        confirmButtonText: 'Si',
         cancelButtonText: 'No, cancelelo!',
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
         swalWithBootstrapButtons.fire(
-            'Salida',
-            'La salida ha sido eliminado',
+            'Traslado',
+            'El taslado ha sido eliminado',
             'success'
         )
         window.location = "index.php?ruta=ConsultaT&elimina="+obj.children[0].innerHTML;
@@ -37,12 +37,20 @@ function EliminarT(obj){
         result.dismiss === Swal.DismissReason.cancel
         ) {
         swalWithBootstrapButtons.fire(
-            'Producto',
+            'Traslado',
             'No se elimino',
             'error'
         )
         }
     })}
+
+    function abrirMD(){
+        document.getElementById('ContModDev').style.display="block";
+    }
+    
+    function ocultarMD(){
+        document.getElementById('ContModDev').style.display="none";
+    }
 
     function ModificarDT(obj){
         codigoDT = document.getElementById('DTTraslado');

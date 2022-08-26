@@ -9,12 +9,13 @@ function ModificarS(obj){
 }
 
 
-function abrir(){
-    document.getElementById('formulario').style.display="block";
+
+function abrirMD(){
+    document.getElementById('ContModDev').style.display="block";
 }
 
-function ocultar(){
-    document.getElementById('formulario').style.display="none";
+function ocultarMD(){
+    document.getElementById('ContModDev').style.display="none";
 }
 
 function EliminarS(obj){
@@ -69,4 +70,18 @@ function EliminarS(obj){
     function ReporteGS(){
 
         window.open("view/modules/reportes/reporteGS.php");
+    }
+
+    function ReporteS(obj){
+        mcodigo = document.getElementById('codSalida');
+        
+
+        mcodigo = obj.children[0].innerHTML;
+       
+       
+      
+
+
+        dato = "codSalida="+mcodigo;
+        window.open("view/modules/reportes/reporteS.php?"+dato, '_blank');
     }

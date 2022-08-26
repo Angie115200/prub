@@ -35,7 +35,7 @@ function EliminarE(obj){
         text: 'No se podra revertir si se borra!',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'SIIi, Borralo!',
+        confirmButtonText: 'Si, Borralo!',
         cancelButtonText: 'No, cancelelo!',
         reverseButtons: true
     }).then((result) => {

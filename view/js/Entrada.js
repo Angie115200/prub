@@ -27,8 +27,8 @@ function EliminarE(obj){
     }).then((result) => {
         if (result.isConfirmed) {
         swalWithBootstrapButtons.fire(
-            'Salida',
-            'La salida ha sido eliminado',
+            'Entrada',
+            'La entrada ha sido eliminado',
             'success'
         )
         window.location = "index.php?ruta=ConsultaE&elimina="+obj.children[0].innerHTML;
@@ -37,21 +37,34 @@ function EliminarE(obj){
         result.dismiss === Swal.DismissReason.cancel
         ) {
         swalWithBootstrapButtons.fire(
-            'Producto',
+            'Entrada',
             'No se elimino',
             'error'
         )
         }
     })}
 
-    function abrir(){
-        document.getElementById('ContenedorDetalle').style.display="block";
+    function abrirMD(){
+        document.getElementById('ContModDev').style.display="block";
     }
     
-    function ocultar(){
-        document.getElementById('ContenedorDetalle').style.display="none";
+    function ocultarMD(){
+        document.getElementById('ContModDev').style.display="none";
     }
 
+    function eliminarGT(){
+        codigoE = document.getElementById('codEntrada');
+
+
+        codigoE.value = obj.children[0].innerHTML;
+    }
+
+    function eliminarDTE(){
+        codigoDT = document.getElementById('DTEntradaE');
+
+
+        codigoDT.value = obj.children[0].innerHTML;
+    }
     
     function ReporteGE(){
 

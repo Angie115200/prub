@@ -26,7 +26,7 @@
                 <td><?php   echo $dato["CANTIDAD_TOTAL"]?></td>
                 <td><?php   echo $dato["PRECIO_TOTAL"]?></td>
                 <td><?php   echo $dato["COD_EMPLEADO"]  ?></td>
-                <td><a href="javascript:abrir()"  onclick = "ModificarE(this.parentElement.parentElement)"><input type="submit" value="Consultar detalle" name = "id"  ></a><input type="submit" value="Eliminar" onclick = "EliminarE(this.parentElement.parentElement)"></td>
+                <td><input type="submit" value="Consultar detalle" name = "id" onclick = "ModificarE(this.parentElement.parentElement)" ></a><input type="submit" value="Eliminar" onclick = "EliminarE(this.parentElement.parentElement)"></td>
 
             </tr>
 
@@ -46,7 +46,7 @@
 
         </table>
         </div> 
-        <input type="submit" value = "Reporte" onclick = "ReporteGE(this.parentElement.parentElement)"> 
+        <input type="submit" value = "Reporte general" onclick = "ReporteGE(this.parentElement.parentElement)" class = "ReporteG"> 
         <div id = "ContenedorDetalle" class = "ContenedorDetalle">
            
         <form action="" method="POST" class = "formConsultaD" id = "formConsultaE">
@@ -94,7 +94,10 @@
                 <td><?php echo $dato['CANTIDAD']?></td>
                 <td><?php echo $dato['PRECIO_UNIDAD']?></td>
                 <td><?php echo $dato['SUBTOTAL']?></td>
-                <td><input type="submit" value = "Modificar" onclick = "ModificarDT(this.parentElement.parentElement)"><input type="submit" value = "Eliminar" onclick = "eliminarDTE()"></td>
+                <td>
+                <a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)"> <input type="submit" value = "Modificar"></a> 
+                <input type="submit" value = "Eliminar"></td>   
+               
                 </tr>
            <?php
                 }}
@@ -102,7 +105,10 @@
         </tbody>
     </table>
         </div>
-        <div class = "ContModDev">
+        <div class = "ContModDev" id = "ContModDev">
+            <h2>MODIFICAR DETALLE ENTRADA
+                <a href="javascript:ocultarMD()"><img src="view/img/cancelar.png"></a>
+            </h2>
             <form action="" method = "post" name = "formModDTEn">
                 <input type="hidden"  id = "DTEntrada" name = "DTEntrada">
 
@@ -120,12 +126,15 @@
 
                 <h4>
                     Precio unitario
-                    <input type="number"  id = "precioU" name = "precioU">
+                   
                 </h4>
+                <input type="number"  id = "precioU" name = "precioU" class = ca>
                   
-                <input type="submit" value="Guardar">
+                <input type="submit" value="Guardar" class = "Guardar">
             </form>
         </div>
+
+        
         <?php
             if(isset($_POST["codProd"])){//Si rececpiona nombre
                 $DTEnt = $_REQUEST['DTEntrada'];
@@ -140,7 +149,8 @@
                 window.location = 'index.php?ruta=ConsultaE'
                 </script>";
             }
-
+            
+           
             
         ?>
 </div>

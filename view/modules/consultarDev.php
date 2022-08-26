@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="view/css/consultaS.css">
+<link rel="stylesheet" href="view/css/consultaD.css">
 <script src="view/js/Devolucion.js"></script>
 
 <div class = "container">
@@ -51,7 +51,7 @@
 
         </table>
         </div>  
-        <input type="submit" value = "Reporte general" onclick = "ReporteGD(this.parentElement.parentElement)">  
+        <input type="submit" value = "Reporte general" onclick = "ReporteGD(this.parentElement.parentElement)" class = "ReporteG">  
         <div id = "ContenedorDetalle" class = "ContenedorDetalle">
            
            <form action="" method="POST" class = "formConsultaD" id = "formConsultaD">
@@ -75,9 +75,7 @@
                        <td>CODIGO DETALLE DEVOLUCION</td>
                        <td>CODIGO DEL PRODUCTO</td>
                        <td>CANTIDAD</td>
-                       <td>OPCIONES
-                           <a href="javascript:ocultar()"><img src="view/img/cancelar.png" class = "cerrarCS"></a>
-                       </td>
+                       <td>OPCIONES</td>
                    </tr>
                </thead>
                <tbody>
@@ -97,7 +95,9 @@
                    <td><?php echo $dato['COD_DTDEVOLUCION']?></td>
                    <td><?php echo $dato['COD_PRODUCTO']?></td>
                    <td><?php echo $dato['CANTIDAD_UNIDAD']?></td>
-                   <td><input type="submit" value = "Modificar" onclick = "ModificarDT(this.parentElement.parentElement)"><input type="submit" value = "Eliminar">
+                   <td><a href="javascript:abrirMD()" onclick = "ModificarDT(this.parentElement.parentElement)">
+                    <input type="submit" value = "Modificar" ></a>
+                    <input type="submit" value = "Eliminar" onclick = "EliminarDT(this.parentElement.parentElement)">
                     
                     </td>
                    </tr>
@@ -106,7 +106,10 @@
               ?>
            </tbody>
        </table>
-        <div class = "ContModDev">
+        <div class = "ContModDev" id = "ContModDev">
+            <h2>MODIFICAR DEVOLUCION 
+            <a href="javascript:ocultarMD()"><img src="view/img/cancelar.png" class = "cerrarCS"></a>
+            </h2>
             <form action="" method = "post" name = "formModDev">
                 <input type="hidden"  id = "DTdevolucion" name = "DTdevolucion">
 
@@ -117,12 +120,15 @@
 
                 <h4>
                     Cantidad
-                    <input type="number"  id = "cantidad" name = "cantidad">
+                    
                 </h4>
                   
-                <input type="submit" value="Guardar">
+                <input type="number"  id = "cantidad" name = "cantidad" class = "ca">
+                <input type="submit" value="Guardar" class = "Guardar">
             </form>
         </div>
+
+            
        <?php
             if(isset($_POST["cantidad"])){//Si rececpiona nombre
                 $DTdev = $_REQUEST['DTdevolucion'];
@@ -134,6 +140,13 @@
                 echo "<script>
                 window.location = 'index.php?ruta=ConsultaD'
                 </script>";
+            }
+
+            if(isset($_POST['so'])){
+                $DTdev = $_REQUEST['DTdevolucion'];
+                $bd = new PDO('mysql:host=localhost; dbname=GINVZ','root', '');
+                $stmt = $bd->prepare("DELETE FROM `detalle_devolucion` WHERE `COD_DTDEVOLUCION` = $DTdev");//Modificamos la cantidad de la salida
+                $stmt -> execute();   
             }
         ?>
         </div>  
