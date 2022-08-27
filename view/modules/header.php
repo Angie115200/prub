@@ -58,7 +58,7 @@
                     </li>
                 </ul>
             </li>
-            <li><a href=""><?php
+            <li><a href="" class = "x"><?php
                  echo($_SESSION['datos']['NOMBRE'] . " " . $_SESSION['datos']['APELLIDO']);
    
                
